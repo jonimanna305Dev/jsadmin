@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Dashboard</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- html2pdf -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        #toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1055;
+        }
+    </style>
+</head>
+
+<body class="bg-light p-4">
+
+    <div class="container">
+
+        <h2 class="mb-4">Admin Dashboard/teams</h2>
+
+        <!-- Action Buttons -->
+        <div class="mb-3 d-flex gap-2">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Add team
+            </button>
+
+            <button type="button" id="clearAll" class="btn btn-danger">
+                Clear All Data
+            </button>
+
+            <a href="team.html" class="btn btn-outline-dark">team</a>
+            <a href="qr.html" class="btn btn-outline-warning">QR Maker</a>
+
+        </div>
+
+        <!-- team Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add team</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form">
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Age</label>
+                                <input type="number" id="age" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Phone</label>
+                                <input type="text" id="phone" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Country</label>
+                                <input type="text" id="country" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Image</label>
+                                <input type="file" id="image" class="form-control" accept="image/*" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Multi Images</label>
+                                <input type="file" id="multiImage" class="form-control" accept="image/*" multiple required>
+                            </div>
+
+                            <div class="text-end">
+                                <button type="submit" class="btn btn-success">Save</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- team Table -->
+        <table class="table table-bordered table-striped mt-3" id="table">
+            <thead>
+                <tr>
+                    <th>S/M</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Phone</th>
+                    <th>Country</th>
+                    <th>Multi Image</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <!-- PDF -->
+        <button id="downloadPDF" class="btn btn-outline-dark">Download PDF</button>
+
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <script>
+        const form = document.getElementById('form');
+        const tableBody = document.querySelector('#table tbody');
+
+        const nameInput = document.getElementById('name');
+        const ageInput = document.getElementById('age');
+        const phoneInput = document.getElementById('phone');
+        const countryInput = document.getElementById('country');
+        const imageInput = document.getElementById('image');
+        const multiImageInput = document.getElementById('multiImage');
+
+        let teams = JSON.parse(localStorage.getItem('teams')) || [];
+        let count = teams.length ? teams[teams.length - 1].id + 1 : 1;
+
+        renderTable();
+
+        // Toast Function
+        function showToast(message, type = 'success') {
+            const toastId = 'toast-' + Date.now();
+            const toastHTML = `
+                <div id="${toastId}" class="toast align-items-center text-bg-${type} bg-opacity-10 text-dark border-0 mb-2" role="alert">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            ${message}
+                        </div>
+                        <button type="button" class="btn-close btn-close-dark me-2 m-auto " data-bs-dismiss="toast"></button>
+                    </div>
+                </div>
+            `;
+            document.getElementById('toast-container').insertAdjacentHTML('beforeend', toastHTML);
+            const toastEl = document.getElementById(toastId);
+            const bsToast = new bootstrap.Toast(toastEl, { delay: 5000 });
+            bsToast.show();
+            toastEl.addEventListener('hidden.bs.toast', () => toastEl.remove());
+        }
+
+        // Add team
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const mainImageReader = new FileReader();
+
+            mainImageReader.onload = function () {
+                // Handle multiple images
+                const multiImageFiles = multiImageInput.files;
+                const multiImages = [];
+
+                if (multiImageFiles.length > 0) {
+                    const readPromises = [];
+
+                    for (let i = 0; i < multiImageFiles.length; i++) {
+                        const file = multiImageFiles[i];
+                        const reader = new FileReader();
+
+                        readPromises.push(new Promise((resolve) => {
+                            reader.onload = function (e) {
+                                multiImages.push(e.target.result);
+                                resolve();
+                            };
+                            reader.readAsDataURL(file);
+                        }));
+                    }
+
+                    Promise.all(readPromises).then(() => {
+                        saveteam(mainImageReader.result, multiImages);
+                    });
+                } else {
+                    saveteam(mainImageReader.result, []);
+                }
+            };
+
+            mainImageReader.readAsDataURL(imageInput.files[0]);
+        });
+
+        function saveteam(mainImage, multiImages) {
+            teams.push({
+                id: count++,
+                image: mainImage,
+                name: nameInput.value,
+                age: ageInput.value,
+                phone: phoneInput.value,
+                country: countryInput.value,
+                multiImages: multiImages
+            });
+
+            saveData();
+            renderTable();
+            form.reset();
+            bootstrap.Modal.getInstance(document.getElementById('exampleModal')).hide();
+            showToast('team added successfully!', 'success');
+        }
+
+        // Edit / Delete
+        tableBody.addEventListener('click', function (e) {
+            const row = e.target.closest('tr');
+            if (!row) return;
+
+            const index = row.dataset.index;
+
+            if (e.target.classList.contains('delete')) {
+                if (confirm('Are you sure you want to delete this team?')) {
+                    teams.splice(index, 1);
+                    saveData();
+                    renderTable();
+                    showToast('team deleted successfully!', 'danger');
+                }
+            }
+
+            if (e.target.classList.contains('edit')) {
+                const team = teams[index];
+
+                const name = prompt('Edit Name', team.name);
+                const age = prompt('Edit Age', team.age);
+                const phone = prompt('Edit Phone', team.phone);
+                const country = prompt('Edit Country', team.country);
+
+                if (name && age && phone && country) {
+                    teams[index] = { ...team, name, age, phone, country };
+                    saveData();
+                    renderTable();
+                    showToast('team updated successfully!', 'info');
+                }
+            }
+
+            if (e.target.classList.contains('view-multi-images')) {
+                const team = teams[index];
+                if (team.multiImages && team.multiImages.length > 0) {
+                    showMultiImagesModal(team.multiImages, team.name);
+                } else {
+                    alert('No additional images available.');
+                }
+            }
+        });
+
+        // Render Table
+        function renderTable() {
+            tableBody.innerHTML = '';
+
+            teams.forEach((team, index) => {
+                let multiImagesContent = 'No images';
+                if (team.multiImages && team.multiImages.length > 0) {
+                    multiImagesContent = `
+                        <button class="btn btn-sm btn-info view-multi-images">
+                            View ${team.multiImages.length} Image(s)
+                        </button>
+                    `;
+                }
+
+                tableBody.innerHTML += `
+                    <tr data-index="${index}">
+                        <td>${team.id}</td>
+                        <td>
+                            <img src="${team.image}" width="30" height="30"
+                                 style="object-fit:cover;border-radius:6px">
+                        </td>
+                        <td>${team.name}</td>
+                        <td>${team.age}</td>
+                        <td>${team.phone}</td>
+                        <td>${team.country}</td>
+                        <td>${multiImagesContent}</td>
+                        <td>
+                            <button class="btn btn-sm btn-warning edit me-1">Edit</button>
+                            <button class="btn btn-sm btn-danger delete">Delete</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        // Show Multi Images Modal
+        function showMultiImagesModal(images, teamName) {
+            const modalHTML = `
+                <div class="modal fade" id="multiImagesModal" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Additional Images for ${teamName}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row" id="multiImagesContainer"></div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const existingModal = document.getElementById('multiImagesModal');
+            if (existingModal) existingModal.remove();
+
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+            const container = document.getElementById('multiImagesContainer');
+            container.innerHTML = '';
+            images.forEach((imgSrc, idx) => {
+                container.innerHTML += `
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <img src="${imgSrc}" class="card-img-top" style="height: 200px; object-fit: cover;" 
+                                 alt="Image ${idx + 1}">
+                            <div class="card-body text-center">
+                                <p class="card-text">Image ${idx + 1}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            const modal = new bootstrap.Modal(document.getElementById('multiImagesModal'));
+            modal.show();
+        }
+
+        function saveData() {
+            localStorage.setItem('teams', JSON.stringify(teams));
+        }
+
+        // Clear All Data
+        document.getElementById('clearAll').addEventListener('click', function () {
+            if (confirm('This will remove all teams. Are you sure?')) {
+                teams = [];
+                count = 1;
+                localStorage.removeItem('teams');
+                renderTable();
+                showToast('All teams removed!', 'warning');
+            }
+        });
+
+        // Download PDF
+        document.getElementById('downloadPDF').onclick = function () {
+            const actionHeader = document.querySelector('#table th:last-child');
+            const actionCells = document.querySelectorAll('#table td:last-child');
+
+            actionHeader.style.display = 'none';
+            actionCells.forEach(td => td.style.display = 'none');
+
+            html2pdf().from(document.getElementById('table')).set({
+                margin: 10,
+                filename: 'teams-data.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            }).save().then(() => {
+                actionHeader.style.display = '';
+                actionCells.forEach(td => td.style.display = '');
+            });
+        };
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
