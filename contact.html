@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Webtan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+<!-- Navbar -->
+  <section class="bg-gradient-to-r from-orange-600 to-orange-500 sticky top-0 z-50">
+    <header class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+
+        <!-- Logo -->
+        <div class="text-white font-extrabold text-2xl">
+          Web<span class="text-black">Tan</span>
+        </div>
+
+        <!-- Mobile Button -->
+        <button id="nav-toggle" class="lg:hidden text-white border border-white p-2 rounded">
+          ☰
+        </button>
+
+        <!-- Menu -->
+        <div id="nav-content" class="hidden lg:flex items-center gap-8 text-white font-medium">
+          <a href="index.html" class="hover:text-black transition">Home</a>
+          <a href="about.html" class="hover:text-black transition">About</a>
+          <a href="anime.html" class="hover:text-black transition">Anime</a>
+          <a href="contact.html" class="hover:text-black transition">Contact</a>
+
+          <a href="loginorregister.html"
+            class="bg-black text-orange-500 px-5 py-2 rounded-full hover:bg-gray-900 transition">
+            Login
+          </a>
+        </div>
+
+      </nav>
+    </header>
+  </section>
+
+<!-- CONTACT SECTION -->
+<section class="bg-gradient-to-b from-black to-gray-900 text-white py-20">
+  <div class="container mx-auto px-4">
+
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
+        Contact <span class="text-orange-500">Webtan</span>
+      </h1>
+      <p class="text-gray-400 max-w-2xl mx-auto">
+        Have a question or want to work with us?  
+        We’d love to hear from you.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+      <!-- Info -->
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-2xl font-bold mb-3">Get In Touch</h3>
+          <p class="text-gray-400">
+            Reach out for collaborations, projects, or support.
+            Our team is always ready to help.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <p><span class="text-orange-500 font-semibold">📍 Address:</span> Dhaka, Bangladesh</p>
+          <p><span class="text-orange-500 font-semibold">📧 Email:</span> support@webtan.com</p>
+          <p><span class="text-orange-500 font-semibold">📞 Phone:</span> +880 1234 567 890</p>
+        </div>
+
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-orange-500">Facebook</a>
+          <a href="#" class="hover:text-orange-500">Instagram</a>
+          <a href="#" class="hover:text-orange-500">Twitter</a>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="bg-gray-900 p-8 rounded-3xl shadow-2xl">
+        <form class="space-y-6">
+          <input type="text" placeholder="Full Name"
+                 class="w-full px-4 py-3 rounded bg-black border border-gray-700 focus:border-orange-500 focus:outline-none">
+
+          <input type="email" placeholder="Email Address"
+                 class="w-full px-4 py-3 rounded bg-black border border-gray-700 focus:border-orange-500 focus:outline-none">
+
+          <textarea rows="5" placeholder="Your Message"
+                    class="w-full px-4 py-3 rounded bg-black border border-gray-700 focus:border-orange-500 focus:outline-none"></textarea>
+
+          <button
+            class="w-full bg-orange-500 text-black font-semibold py-3 rounded-full hover:bg-orange-600 transition">
+            Send Message
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+  <footer class="bg-black text-gray-400 pt-16">
+    <div class="container mx-auto px-4">
+
+      <!-- Top Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+
+        <!-- Brand -->
+        <div>
+          <h3 class="text-2xl font-bold text-white mb-4">
+            Web<span class="text-orange-500">Tan</span>
+          </h3>
+          <p class="text-sm leading-relaxed">
+            Your ultimate anime watching platform. Stream high-quality anime
+            anytime, anywhere with a cinematic experience.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-orange-500 transition">Home</a></li>
+            <li><a href="#" class="hover:text-orange-500 transition">About</a></li>
+            <li><a href="#" class="hover:text-orange-500 transition">Anime</a></li>
+            <li><a href="#" class="hover:text-orange-500 transition">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Categories -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Categories</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-orange-500 transition">Action</a></li>
+            <li><a href="#" class="hover:text-orange-500 transition">Adventure</a></li>
+            <li><a href="#" class="hover:text-orange-500 transition">Fantasy</a></li>
+            <li><a href="#" class="hover:text-orange-500 transition">Romance</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Stay Updated</h4>
+          <p class="text-sm mb-4">
+            Subscribe to get the latest anime updates & releases.
+          </p>
+          <form class="flex">
+            <input type="email" placeholder="Email address"
+              class="w-full px-4 py-2 rounded-l bg-gray-900 text-white focus:outline-none">
+            <button class="bg-orange-500 px-4 py-2 rounded-r text-black font-semibold hover:bg-orange-600 transition">
+              Go
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Bottom -->
+      <div class="border-t border-gray-800 py-6 flex flex-col md:flex-row items-center justify-between">
+        <p class="text-sm">
+          © 2026 WebTan. All rights reserved.
+        </p>
+
+        <!-- Social -->
+        <div class="flex gap-4 mt-4 md:mt-0">
+          <a href="#" class="hover:text-orange-500 transition">Facebook</a>
+          <a href="#" class="hover:text-orange-500 transition">Twitter</a>
+          <a href="#" class="hover:text-orange-500 transition">Instagram</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+<!-- Navbar Toggle -->
+<script>
+  document.getElementById('nav-toggle').onclick = function () {
+    document.getElementById('nav-content').classList.toggle('hidden');
+  };
+</script>
+
+</body>
+</html>
