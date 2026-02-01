@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .sidebar {
+      min-height: 100vh;
+      background-color: #0d6efd;
+      color: white;
+      padding-top: 20px;
+    }
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin: 5px 10px;
+    }
+    .sidebar a:hover {
+      background-color: #0b5ed7;
+    }
+    .content {
+      padding: 20px;
+    }
+    .card-custom {
+      background-color: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- Sidebar -->
+    <div class="col-md-2 sidebar">
+      <h4 class="text-center">Admin</h4>
+      <a href="#" id="dashboard-link">Dashboard</a>
+      <a href="teams.html">Team</a>
+      <a href="qr.html">QR Generator</a>
+      <a href="#" id="logout-btn">Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-md-10 content">
+      <h2 id="page-title">Dashboard</h2>
+      <p id="welcome-msg"></p>
+
+      <!-- Dashboard Content -->
+      <div id="main-content" class="row mt-4">
+
+        <!-- Team Member Count Card -->
+        <div class="col-md-4" id="team-card">
+          <div class="card-custom">
+            <h5>Team Members</h5>
+            <p id="team-count">5</p>
+          </div>
+        </div>
+
+        <!-- Placeholder for other content -->
+        <div class="col-md-4" id="qr-card" style="display:none;">
+          <div class="card-custom">
+            <h5>QR Generator</h5>
+            <button class="btn btn-primary">Generate QR</button>
+          </div>
+        </div>
+
+        <div class="col-md-4" id="dashboard-card">
+          <div class="card-custom">
+            <h5>Dashboard Overview</h5>
+            <p>Some stats here...</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Bootstrap 5 JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+  if (!currentUser) {
+    window.location.href = 'index.html';
+  } else {
+    document.getElementById('welcome-msg').innerText = `Welcome, ${currentUser.name}!`;
+  }
+
+  // Logout button
+  document.getElementById('logout-btn').addEventListener('click', () => {
+    localStorage.removeItem('currentUser');
+    window.location.href = 'index.html';
+  });
+
+  // Sidebar navigation logic
+  const dashboardLink = document.getElementById('dashboard-link');
+  const teamLink = document.getElementById('team-link');
+  const qrLink = document.getElementById('qr-link');
+
+  const dashboardCard = document.getElementById('dashboard-card');
+  const teamCard = document.getElementById('team-card');
+  const qrCard = document.getElementById('qr-card');
+  const pageTitle = document.getElementById('page-title');
+
+  dashboardLink.addEventListener('click', () => {
+    pageTitle.innerText = 'Dashboard';
+    dashboardCard.style.display = 'block';
+    teamCard.style.display = 'none';
+    qrCard.style.display = 'none';
+  });
+
+  teamLink.addEventListener('click', () => {
+    pageTitle.innerText = 'Team';
+    dashboardCard.style.display = 'none';
+    teamCard.style.display = 'block';
+    qrCard.style.display = 'none';
+  });
+
+  qrLink.addEventListener('click', () => {
+    pageTitle.innerText = 'QR Generator';
+    dashboardCard.style.display = 'none';
+    teamCard.style.display = 'none';
+    qrCard.style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
