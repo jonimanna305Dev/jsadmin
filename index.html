@@ -11,88 +11,123 @@
 </head>
 
 <body class="bg-gray-100">
+<!-- Fixed Navbar -->
+<nav class="bg-orange-600 fixed w-full z-20 top-0 left-0 border-b border-orange-700">
+  <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between p-4">
 
-  <!-- Navbar -->
-  <section class="bg-gradient-to-r from-orange-600 to-orange-500 sticky top-0 z-50">
-    <header class="container mx-auto px-4 py-4">
-      <nav class="flex items-center justify-between">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center space-x-3">
+      <img src="https://flowbite.com/docs/images/logo.svg" class="h-7" alt="Logo">
+      <span class="text-xl font-semibold text-white">Web<span class="text-gray-100">Tan</span></span>
+    </a>
 
-        <!-- Logo -->
-        <div class="text-white font-extrabold text-2xl">
-          Web<span class="text-black">Tan</span>
-        </div>
+    <!-- Right-side Buttons (Mobile & Desktop) -->
+    <div class="flex items-center md:order-2 space-x-2">
+      <!-- Login Button -->
+      <a href="loginorregister.html"
+         class="bg-white text-orange-600 font-semibold px-4 py-2 rounded-md hover:bg-gray-100 transition hidden md:inline-block">
+        Login
+      </a>
 
-        <!-- Mobile Button -->
-        <button id="nav-toggle" class="lg:hidden text-white border border-white p-2 rounded">
-          ☰
-        </button>
+      <!-- Mobile Menu Button -->
+      <button data-collapse-toggle="navbar-sticky" type="button"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-white rounded-md md:hidden hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-400"
+        aria-controls="navbar-sticky" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
 
-        <!-- Menu -->
-        <div id="nav-content" class="hidden lg:flex items-center gap-8 text-white font-medium">
-          <a href="index.html" class="hover:text-black transition">Home</a>
-          <a href="about.html" class="hover:text-black transition">About</a>
-          <a href="anime.html" class="hover:text-black transition">Anime</a>
-          <a href="contact.html" class="hover:text-black transition">Contact</a>
+    <!-- Menu -->
+    <div class="hidden w-full md:flex md:w-auto md:order-1 items-center justify-between" id="navbar-sticky">
+      <ul class="flex flex-col md:flex-row md:space-x-6 text-white font-medium mt-4 md:mt-0">
+        <li>
+          <a href="index.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Home</a>
+        </li>
+        <li>
+          <a href="about.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">About</a>
+        </li>
+        <li>
+          <a href="anime.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Anime</a>
+        </li>
+        <li>
+          <a href="contact.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Contact</a>
+        </li>
+      </ul>
 
-          <a href="loginorregister.html"
-            class="bg-black text-orange-500 px-5 py-2 rounded-full hover:bg-gray-900 transition">
-            Login
-          </a>
-        </div>
+      <!-- Mobile Login Button -->
+      <a href="login.html" class="block mt-3 md:hidden w-full text-center bg-white text-orange-600 font-semibold px-4 py-2 rounded-md hover:bg-gray-100 transition">
+        Login
+      </a>
+    </div>
 
-      </nav>
-    </header>
-  </section>
+  </div>
+</nav>
+
+<!-- Script for Mobile Toggle -->
+<script>
+  const toggleButton = document.querySelector('[data-collapse-toggle="navbar-sticky"]');
+  const menu = document.getElementById('navbar-sticky');
+
+  toggleButton.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
 
 
   <!-- Hero Section -->
-  <section class="relative min-h-screen flex items-center text-white overflow-hidden">
+<section class="relative min-h-screen mt-16 flex items-center text-white overflow-hidden">
 
-    <!-- Background -->
-    <div class="absolute inset-0">
-      <img src="image/section1_bg.jpg" class="w-full h-full object-cover">
-      <div class="absolute inset-0 bg-black/70"></div>
-    </div>
+  <!-- Background Image + Overlay -->
+  <div class="absolute inset-0">
+    <img src="image/section1_bg.jpg" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black/70"></div>
+  </div>
 
-    <!-- Content -->
-    <div class="relative container mx-auto px-4">
-      <div class="flex flex-col md:flex-row items-center gap-12">
+  <!-- Content -->
+  <div class="relative container mx-auto px-4">
+    <!-- Flex container: column on mobile, row on md+ -->
+    <div class="flex flex-col-reverse md:flex-row items-center gap-12">
 
-        <!-- Text -->
-        <div class="md:w-1/2">
-          <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
-            Watch Anime <br>
-            <span class="text-orange-500">Like Never Before</span>
-          </h1>
+      <!-- Text Content -->
+      <div class="md:w-1/2 text-center md:text-left">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
+          Watch Anime <br>
+          <span class="text-orange-500">Like Never Before</span>
+        </h1>
 
-          <p class="text-gray-300 mb-8 leading-relaxed">
-            Stream top anime in ultra quality with fast loading, dark mode visuals,
-            and a cinematic watching experience.
-          </p>
+        <p class="text-gray-300 mb-8 text-base sm:text-lg md:text-xl leading-relaxed">
+          Stream top anime in ultra quality with fast loading, dark mode visuals,
+          and a cinematic watching experience.
+        </p>
 
-          <div class="flex gap-4">
-            <a href="#"
-              class="bg-orange-500 text-black px-8 py-3 rounded-full font-semibold hover:bg-orange-600 transition">
-              Watch Now
-            </a>
-            <a href="#" class="border border-gray-400 px-8 py-3 rounded-full hover:border-orange-500 transition">
-              Browse Anime
-            </a>
-          </div>
+        <div class="flex flex-wrap justify-center md:justify-start gap-4">
+          <a href="#"
+            class="bg-orange-500 text-black px-8 py-3 rounded-full font-semibold hover:bg-orange-600 transition">
+            Watch Now
+          </a>
+          <a href="#"
+            class="border border-gray-400 px-8 py-3 rounded-full hover:border-orange-500 transition">
+            Browse Anime
+          </a>
         </div>
-
-        <!-- Image -->
-        <div class="md:w-1/2 relative">
-          <img src="image/hero1.png" class="rounded-3xl w-full object-contain drop-shadow-2xl">
-
-          <!-- Glow -->
-          <div class="absolute inset-0 bg-orange-500 opacity-20 blur-3xl rounded-3xl -z-10">
-          </div>
-        </div>
-
       </div>
+
+      <!-- Image Content -->
+      <div class="md:w-1/2 relative flex justify-center md:justify-end">
+        <img src="image/hero1.png" class="rounded-3xl w-full max-w-md md:max-w-full object-contain drop-shadow-2xl z-10">
+
+        <!-- Glow Effect -->
+        <div class="absolute inset-0 bg-orange-500 opacity-20 blur-3xl rounded-3xl -z-10"></div>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Section 2: About Us -->
   <section class="bg-gradient-to-b from-white to-gray-100 py-20">
