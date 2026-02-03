@@ -1,144 +1,230 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Tailwind</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+
+  <button data-drawer-target="sidebar" data-drawer-toggle="sidebar" aria-controls="sidebar"
+    class="sm:hidden fixed top-4 left-4 z-50 p-2 rounded bg-blue-600 text-white hover:bg-blue-700 focus:outline-none">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+  </button>
+
+
+  <aside id="sidebar" class="fixed top-0 left-0 z-40 w-64 h-full bg-blue-600 text-white transform -translate-x-full sm:translate-x-0 transition-transform">
+    <div class="h-full flex flex-col">
+      <div class="px-6 py-4 text-center font-bold text-xl border-b border-blue-500">Admin</div>
+      <nav class="flex-1 px-2 py-4 space-y-2">
+        <a href="#" id="dashboard-link" class="block px-4 py-2 rounded hover:bg-blue-700">Dashboard</a>
+        <a href="#" id="team-link" class="block px-4 py-2 rounded hover:bg-blue-700">Team</a>
+        <a href="#" id="qr-link" class="block px-4 py-2 rounded hover:bg-blue-700">QR Generator</a>
+        <a href="#" id="logout-btn" class="block px-4 py-2 rounded hover:bg-red-600 mt-6">Logout</a>
+      </nav>
+    </div>
+  </aside>
+
+
+  <div class="sm:ml-64 p-6">
+    <h2 id="page-title" class="text-2xl font-bold mb-2">Dashboard</h2>
+    <p id="welcome-msg" class="mb-6 text-gray-700"></p>
+
+    <div id="main-content" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+
+      <div id="dashboard-card" class="bg-white rounded-lg shadow p-6 text-center">
+        <h3 class="text-lg font-semibold mb-2">Dashboard Overview</h3>
+        <p>Some stats here...</p>
+      </div>
+
+
+      <div id="team-card" class="bg-white rounded-lg shadow p-6 text-center hidden">
+        <h3 class="text-lg font-semibold mb-2">Team Members</h3>
+        <p id="team-count" class="text-2xl font-bold">5</p>
+      </div>
+
+
+      <div id="qr-card" class="bg-white rounded-lg shadow p-6 text-center hidden">
+        <h3 class="text-lg font-semibold mb-2">QR Generator</h3>
+        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Generate QR</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+   
+    const currentUser = JSON.parse(localStorage.getItem('currentUser')) || {name: "Admin"};
+    document.getElementById('welcome-msg').innerText = `Welcome, ${currentUser.name}!`;
+
+ 
+    document.getElementById('logout-btn').addEventListener('click', () => {
+      localStorage.removeItem('currentUser');
+      window.location.href = 'index.html';
+    });
+
+
+    const dashboardLink = document.getElementById('dashboard-link');
+    const teamLink = document.getElementById('team-link');
+    const qrLink = document.getElementById('qr-link');
+
+    const dashboardCard = document.getElementById('dashboard-card');
+    const teamCard = document.getElementById('team-card');
+    const qrCard = document.getElementById('qr-card');
+    const pageTitle = document.getElementById('page-title');
+
+    dashboardLink.addEventListener('click', () => {
+      pageTitle.innerText = 'Dashboard';
+      dashboardCard.classList.remove('hidden');
+      teamCard.classList.add('hidden');
+      qrCard.classList.add('hidden');
+    });
+
+    teamLink.addEventListener('click', () => {
+      pageTitle.innerText = 'Team';
+      dashboardCard.classList.add('hidden');
+      teamCard.classList.remove('hidden');
+      qrCard.classList.add('hidden');
+    });
+
+    qrLink.addEventListener('click', () => {
+      pageTitle.innerText = 'QR Generator';
+      dashboardCard.classList.add('hidden');
+      teamCard.classList.add('hidden');
+      qrCard.classList.remove('hidden');
+    });
+
+ 
+    const sidebar = document.getElementById('sidebar');
+    document.querySelector('[data-drawer-toggle]').addEventListener('click', () => {
+      sidebar.classList.toggle('-translate-x-full');
+    });
+  </script>
+
+</body>
+</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard</title>
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #f8f9fa;
-    }
-    .sidebar {
-      min-height: 100vh;
-      background-color: #0d6efd;
-      color: white;
-      padding-top: 20px;
-    }
-    .sidebar a {
-      color: white;
-      text-decoration: none;
-      display: block;
-      padding: 10px 20px;
-      border-radius: 5px;
-      margin: 5px 10px;
-    }
-    .sidebar a:hover {
-      background-color: #0b5ed7;
-    }
-    .content {
-      padding: 20px;
-    }
-    .card-custom {
-      background-color: white;
-      border-radius: 0.5rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      padding: 20px;
-      text-align: center;
-    }
-  </style>
+  <title>Dashboard with Navbar</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Alpine.js -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body>
+<body class="bg-gray-100">
 
-<div class="container-fluid">
-  <div class="row">
+<div x-data="{ sidebarOpen: false, userDropdownOpen: false }" class="relative flex">
 
-    <!-- Sidebar -->
-    <div class="col-md-2 sidebar">
-      <h4 class="text-center">Admin</h4>
-      <a href="#" id="dashboard-link">Dashboard</a>
-      <a href="teams.html">Team</a>
-      <a href="qr.html">QR Generator</a>
-      <a href="#" id="logout-btn">Logout</a>
+  <!-- Sidebar -->
+  <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'" class="fixed top-0 left-0 z-40 w-64 h-screen bg-white border-r border-gray-200 transition-transform sm:translate-x-0">
+    <div class="flex flex-col h-full">
+      <!-- Logo -->
+      <div class="flex items-center justify-center h-16 border-b border-gray-200">
+        <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Logo">
+        <span class="ml-2 text-lg font-semibold text-heading">Flowbite</span>
+      </div>
+      <!-- Sidebar Links -->
+      <div class="flex-1 overflow-y-auto px-3 py-4">
+        <ul class="space-y-2 font-medium">
+          <li>
+            <a href="#" class="flex items-center px-2 py-2 rounded hover:bg-gray-100 hover:text-blue-600">
+              Dashboard
+            </a>
+          </li>
+          <li x-data="{ open: false }">
+            <button @click="open = !open" class="flex items-center justify-between w-full px-2 py-2 rounded hover:bg-gray-100 hover:text-blue-600">
+              <span>E-commerce</span>
+              <svg :class="open ? 'rotate-180' : ''" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <ul x-show="open" x-transition class="pl-6 mt-2 space-y-1">
+              <li><a href="#" class="block px-2 py-1 rounded hover:bg-gray-100">Products</a></li>
+              <li><a href="#" class="block px-2 py-1 rounded hover:bg-gray-100">Billing</a></li>
+              <li><a href="#" class="block px-2 py-1 rounded hover:bg-gray-100">Invoice</a></li>
+            </ul>
+          </li>
+          <li><a href="#" class="block px-2 py-2 rounded hover:bg-gray-100 hover:text-blue-600">Kanban</a></li>
+          <li><a href="#" class="block px-2 py-2 rounded hover:bg-gray-100 hover:text-blue-600">Inbox</a></li>
+          <li><a href="#" class="block px-2 py-2 rounded hover:bg-gray-100 hover:text-blue-600">Users</a></li>
+          <li><a href="#" class="block px-2 py-2 rounded hover:bg-gray-100 hover:text-blue-600">Products</a></li>
+          <li><a href="#" class="block px-2 py-2 rounded hover:bg-gray-100 hover:text-blue-600">Sign In</a></li>
+        </ul>
+      </div>
     </div>
+  </aside>
 
-    <!-- Main Content -->
-    <div class="col-md-10 content">
-      <h2 id="page-title">Dashboard</h2>
-      <p id="welcome-msg"></p>
+  <!-- Main Content -->
+  <div class="flex-1 sm:ml-64">
 
-      <!-- Dashboard Content -->
-      <div id="main-content" class="row mt-4">
-
-        <!-- Team Member Count Card -->
-        <div class="col-md-4" id="team-card">
-          <div class="card-custom">
-            <h5>Team Members</h5>
-            <p id="team-count">5</p>
-          </div>
+    <!-- Navbar -->
+    <nav class="bg-neutral-primary fixed w-full sm:ml-64 z-20 top-0 left-0 border-b border-default">
+      <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+        <div class="flex items-center space-x-3 rtl:space-x-reverse">
+          <button @click="sidebarOpen = !sidebarOpen" class="md:hidden inline-flex items-center p-2 text-body rounded hover:bg-neutral-secondary-soft focus:outline-none focus:ring-2 focus:ring-neutral-tertiary">
+            <span class="sr-only">Toggle sidebar</span>
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 7h14M5 12h14M5 17h14"></path>
+            </svg>
+          </button>
         </div>
 
-        <!-- Placeholder for other content -->
-        <div class="col-md-4" id="qr-card" style="display:none;">
-          <div class="card-custom">
-            <h5>QR Generator</h5>
-            <button class="btn btn-primary">Generate QR</button>
+        <!-- Right Side: User Menu -->
+        <div class="flex items-center space-x-3 rtl:space-x-reverse">
+          <button @click="userDropdownOpen = !userDropdownOpen" type="button" class="flex text-sm bg-neutral-primary rounded-full focus:ring-4 focus:ring-neutral-tertiary">
+            <span class="sr-only">Open user menu</span>
+            <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
+          </button>
+
+          <div x-show="userDropdownOpen" @click.outside="userDropdownOpen = false" x-transition class="absolute right-4 mt-12 bg-neutral-primary-medium border border-default-medium rounded-base shadow-lg w-44 z-50">
+            <div class="px-4 py-3 text-sm border-b border-default">
+              <span class="block text-heading font-medium">Joseph McFall</span>
+              <span class="block text-body truncate">name@flowbite.com</span>
+            </div>
+            <ul class="p-2 text-sm text-body font-medium">
+              <li><a href="#" class="block w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Dashboard</a></li>
+              <li><a href="#" class="block w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Settings</a></li>
+              <li><a href="#" class="block w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Earnings</a></li>
+              <li><a href="#" class="block w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Sign out</a></li>
+            </ul>
           </div>
         </div>
+      </div>
+    </nav>
 
-        <div class="col-md-4" id="dashboard-card">
-          <div class="card-custom">
-            <h5>Dashboard Overview</h5>
-            <p>Some stats here...</p>
-          </div>
+    <!-- Page Content -->
+    <div class="pt-20 p-4">
+      <div class="p-4 border border-dashed rounded bg-white">
+        <div class="grid grid-cols-3 gap-4 mb-4">
+          <div class="h-24 bg-gray-100 rounded flex items-center justify-center">Block 1</div>
+          <div class="h-24 bg-gray-100 rounded flex items-center justify-center">Block 2</div>
+          <div class="h-24 bg-gray-100 rounded flex items-center justify-center">Block 3</div>
         </div>
 
+        <div class="flex h-48 mb-4 bg-gray-100 rounded items-center justify-center">Large Block</div>
+
+        <div class="grid grid-cols-2 gap-4 mb-4">
+          <div class="h-24 bg-gray-100 rounded flex items-center justify-center">Block 4</div>
+          <div class="h-24 bg-gray-100 rounded flex items-center justify-center">Block 5</div>
+        </div>
+
+        <div class="flex h-48 mb-4 bg-gray-100 rounded items-center justify-center">Another Large Block</div>
       </div>
     </div>
 
   </div>
+
 </div>
-
-<!-- Bootstrap 5 JS Bundle -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-
-  if (!currentUser) {
-    window.location.href = 'index.html';
-  } else {
-    document.getElementById('welcome-msg').innerText = `Welcome, ${currentUser.name}!`;
-  }
-
-  // Logout button
-  document.getElementById('logout-btn').addEventListener('click', () => {
-    localStorage.removeItem('currentUser');
-    window.location.href = 'index.html';
-  });
-
-  // Sidebar navigation logic
-  const dashboardLink = document.getElementById('dashboard-link');
-  const teamLink = document.getElementById('team-link');
-  const qrLink = document.getElementById('qr-link');
-
-  const dashboardCard = document.getElementById('dashboard-card');
-  const teamCard = document.getElementById('team-card');
-  const qrCard = document.getElementById('qr-card');
-  const pageTitle = document.getElementById('page-title');
-
-  dashboardLink.addEventListener('click', () => {
-    pageTitle.innerText = 'Dashboard';
-    dashboardCard.style.display = 'block';
-    teamCard.style.display = 'none';
-    qrCard.style.display = 'none';
-  });
-
-  teamLink.addEventListener('click', () => {
-    pageTitle.innerText = 'Team';
-    dashboardCard.style.display = 'none';
-    teamCard.style.display = 'block';
-    qrCard.style.display = 'none';
-  });
-
-  qrLink.addEventListener('click', () => {
-    pageTitle.innerText = 'QR Generator';
-    dashboardCard.style.display = 'none';
-    teamCard.style.display = 'none';
-    qrCard.style.display = 'block';
-  });
-</script>
-
 </body>
 </html>
+
+
+
