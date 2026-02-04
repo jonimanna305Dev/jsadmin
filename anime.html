@@ -4,41 +4,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anime | Webtan</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body class="bg-gray-100 text-gray-800">
 
-<!-- NAVBAR -->
-<section class="bg-orange-600 p-4">
-  <header class="container mx-auto">
-    <nav class="flex items-center justify-between flex-wrap">
-      <div class="flex items-center text-white font-bold text-xl">
-        Web<span class="text-gray-100">Tan</span>
-      </div>
+<!-- Fixed Navbar -->
+  <nav class="bg-orange-600 fixed w-full z-20 top-0 left-0 border-b border-orange-700">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between p-4">
 
-      <!-- Mobile Button -->
-      <div class="block lg:hidden">
-        <button id="nav-toggle" class="border border-white px-3 py-2 rounded text-white">
-          ☰
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center">
+        <span class="text-xl font-bold text-white">WT</span>
+        <!-- <img src="image/logo.png" class="h-10" alt="Logo"> -->
+        <span class="text-xl font-bold text-black">Anime</span>
+      </a>
+
+      <!-- Right-side Buttons (Mobile & Desktop) -->
+      <div class="flex items-center md:order-2 space-x-2">
+        <!-- Login Button -->
+        <a href="loginorregister.html"
+          class="bg-black text-orange-600 font-semibold px-4 py-2 rounded-full hover:bg-gray-100 transition hidden md:inline-block">
+          Login
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button data-collapse-toggle="navbar-sticky" type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-white rounded-md md:hidden hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-400"
+          aria-controls="navbar-sticky" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
         </button>
       </div>
 
       <!-- Menu -->
-      <div id="nav-content" class="w-full lg:flex lg:items-center lg:w-auto hidden lg:block">
-        <ul class="text-white lg:flex lg:gap-6">
-          <li><a href="index.html" class="hover:text-gray-200">Home</a></li>
-          <li><a href="about.html" class="hover:text-gray-200">About</a></li>
-          <li><a href="anime.html" class="font-bold underline">Anime</a></li>
-          <li><a href="contact.html" class="hover:text-gray-200">Contact</a></li>
+      <div class="hidden w-full md:flex md:w-auto md:order-1 items-center justify-between" id="navbar-sticky">
+        <ul class="flex flex-col md:flex-row md:space-x-6 text-white font-medium mt-4 md:mt-0">
+          <li>
+            <a href="index.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Home</a>
+          </li>
+          <li>
+            <a href="about.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">About</a>
+          </li>
+          <li>
+            <a href="anime.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Anime</a>
+          </li>
+          <li>
+            <a href="contact.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Contact</a>
+          </li>
         </ul>
+
+        <!-- Mobile Login Button -->
+        <a href="login.html"
+          class="block mt-3 md:hidden w-full text-center bg-black text-orange-600 font-semibold px-4 py-2 rounded-full hover:bg-gray-100 transition">
+          Login
+        </a>
       </div>
-    </nav>
-  </header>
-</section>
+
+    </div>
+  </nav>
 
 <!-- HERO -->
-<section class="bg-gradient-to-b from-black to-gray-900 text-white py-20">
+<section class="bg-gradient-to-b from-black to-gray-900 text-white py-28 ">
   <div class="container mx-auto px-4 text-center">
     <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
       Explore <span class="text-orange-500">Anime</span>
@@ -50,7 +79,7 @@
 </section>
 
 <!-- ANIME GRID -->
-<section class="py-20 bg-gray-900 text-white">
+<section class="py-28 bg-gray-900 text-white">
   <div class="container mx-auto px-4">
 
     <h2 class="text-3xl md:text-4xl font-extrabold mb-10 text-center">
@@ -58,52 +87,24 @@
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-
-      <!-- Anime Card -->
-      <div class="bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:scale-105 transition transform cursor-pointer">
-        <img src="image/narutoK.png" alt="Naruto"
-             class="w-full h-64 object-cover">
-        <div class="p-4">
-          <h3 class="text-xl font-bold mb-2">Naruto</h3>
-          <p class="text-gray-400 text-sm mb-2">Action, Adventure</p>
-          
-        </div>
-      </div>
-
-      <!-- Anime Card -->
-      <div class="bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:scale-105 transition transform cursor-pointer">
-        <img src="image/onepiece.png" alt="One Piece"
-             class="w-full h-64 object-cover">
-        <div class="p-4">
-          <h3 class="text-xl font-bold mb-2">One Piece</h3>
-          <p class="text-gray-400 text-sm mb-2">Adventure, Fantasy</p>
-          
-        </div>
-      </div>
-
-      <!-- Anime Card -->
-      <div class="bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:scale-105 transition transform cursor-pointer">
-        <img src="image/bleach.png" alt="Bleach"
-             class="w-full h-64 object-cover">
-        <div class="p-4">
-          <h3 class="text-xl font-bold mb-2">Bleach</h3>
-          <p class="text-gray-400 text-sm mb-2">Action, Supernatural</p>
-          
-        </div>
-      </div>
-
       <!-- Anime Card -->
       <div class="bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:scale-105 transition transform cursor-pointer">
         <img src="image/black cover.jpg" alt="Attack on Titan"
              class="w-full h-64 object-cover">
         <div class="p-4">
           <a href="watch.html"><h3 class="text-xl font-bold mb-2 hover:text-orange-500 transition">Black Cover</h3></a>
-          <p class="text-gray-400 text-sm mb-2">Action, Drama</p>
+          <p class="text-gray-400 text-sm mb-2">Action, Anime</p>
         </div>
       </div>
 
-      <!-- Add more anime cards as needed -->
-
+      <div class="bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:scale-105 transition transform cursor-pointer">
+        <img src="image/naruto.webp" alt="Attack on Titan"
+             class="w-full h-64 object-cover">
+        <div class="p-4">
+          <a href="watch1.html"><h3 class="text-xl font-bold mb-2 hover:text-orange-500 transition">Naruto</h3></a>
+          <p class="text-gray-400 text-sm mb-2">Action, Anime</p>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -114,12 +115,12 @@
     <div class="container mx-auto px-4">
 
       <!-- Top Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-12">
 
         <!-- Brand -->
         <div>
           <h3 class="text-2xl font-bold text-white mb-4">
-            Web<span class="text-orange-500">Tan</span>
+            WT<span class="text-orange-500">Anime</span>
           </h3>
           <p class="text-sm leading-relaxed">
             Your ultimate anime watching platform. Stream high-quality anime
@@ -174,9 +175,10 @@
 
         <!-- Social -->
         <div class="flex gap-4 mt-4 md:mt-0">
-          <a href="#" class="hover:text-orange-500 transition">Facebook</a>
-          <a href="#" class="hover:text-orange-500 transition">Twitter</a>
-          <a href="#" class="hover:text-orange-500 transition">Instagram</a>
+          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-facebook-circle'></i></a>
+          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-twitter' ></i></a>
+          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-youtube' ></i></a>
+          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-instagram-alt' ></i></a>
         </div>
       </div>
 
@@ -184,11 +186,8 @@
   </footer>
 
 <!-- Navbar Toggle -->
-<script>
-  document.getElementById('nav-toggle').onclick = function () {
-    document.getElementById('nav-content').classList.toggle('hidden');
-  };
-</script>
+<script src="js/navbar.js"></script>
+<script src="js/tailwindcss.js"></script>
 
 </body>
 </html>

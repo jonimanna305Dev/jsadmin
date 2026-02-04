@@ -6,192 +6,117 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Website</title>
   <!-- Tailwind CSS CDN -->
-   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body class="bg-gray-100">
-<!-- Fixed Navbar -->
-<nav class="bg-orange-600 fixed w-full z-20 top-0 left-0 border-b border-orange-700">
-  <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between p-4">
 
-    <!-- Logo -->
-    <a href="index.html" class="flex items-center space-x-3">
-      <img src="https://flowbite.com/docs/images/logo.svg" class="h-7" alt="Logo">
-      <span class="text-xl font-semibold text-white">Web<span class="text-gray-100">Tan</span></span>
-    </a>
+  <!-- Fixed Navbar -->
+  <nav class="bg-orange-600 fixed w-full z-20 top-0 left-0 border-b border-orange-700">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between p-4">
 
-    <!-- Right-side Buttons (Mobile & Desktop) -->
-    <div class="flex items-center md:order-2 space-x-2">
-      <!-- Login Button -->
-      <a href="loginorregister.html"
-         class="bg-white text-orange-600 font-semibold px-4 py-2 rounded-md hover:bg-gray-100 transition hidden md:inline-block">
-        Login
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center">
+        <span class="text-xl font-bold text-white">WT</span>
+        <!-- <img src="image/logo.png" class="h-10" alt="Logo"> -->
+        <span class="text-xl font-bold text-black">Anime</span>
       </a>
 
-      <!-- Mobile Menu Button -->
-      <button data-collapse-toggle="navbar-sticky" type="button"
-        class="inline-flex items-center p-2 w-10 h-10 justify-center text-white rounded-md md:hidden hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-400"
-        aria-controls="navbar-sticky" aria-expanded="false">
-        <span class="sr-only">Open main menu</span>
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
+      <!-- Right-side Buttons (Mobile & Desktop) -->
+      <div class="flex items-center md:order-2 space-x-2">
+        <!-- Login Button -->
+        <a href="loginorregister.html"
+          class="bg-black text-orange-600 font-semibold px-4 py-2 rounded-full hover:bg-gray-100 transition hidden md:inline-block">
+          Login
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button data-collapse-toggle="navbar-sticky" type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-white rounded-md md:hidden hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-400"
+          aria-controls="navbar-sticky" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Menu -->
+      <div class="hidden w-full md:flex md:w-auto md:order-1 items-center justify-between" id="navbar-sticky">
+        <ul class="flex flex-col md:flex-row md:space-x-6 text-white font-medium mt-4 md:mt-0">
+          <li>
+            <a href="index.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Home</a>
+          </li>
+          <li>
+            <a href="about.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">About</a>
+          </li>
+          <li>
+            <a href="anime.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Anime</a>
+          </li>
+          <li>
+            <a href="contact.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Contact</a>
+          </li>
+        </ul>
+
+        <!-- Mobile Login Button -->
+        <a href="login.html"
+          class="block mt-3 md:hidden w-full text-center bg-black text-orange-600 font-semibold px-4 py-2 rounded-full hover:bg-gray-100 transition">
+          Login
+        </a>
+      </div>
+
     </div>
-
-    <!-- Menu -->
-    <div class="hidden w-full md:flex md:w-auto md:order-1 items-center justify-between" id="navbar-sticky">
-      <ul class="flex flex-col md:flex-row md:space-x-6 text-white font-medium mt-4 md:mt-0">
-        <li>
-          <a href="index.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Home</a>
-        </li>
-        <li>
-          <a href="about.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">About</a>
-        </li>
-        <li>
-          <a href="anime.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Anime</a>
-        </li>
-        <li>
-          <a href="contact.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Contact</a>
-        </li>
-      </ul>
-
-      <!-- Mobile Login Button -->
-      <a href="login.html" class="block mt-3 md:hidden w-full text-center bg-white text-orange-600 font-semibold px-4 py-2 rounded-md hover:bg-gray-100 transition">
-        Login
-      </a>
-    </div>
-
-  </div>
-</nav>
-
-<!-- Script for Mobile Toggle -->
-<script>
-  const toggleButton = document.querySelector('[data-collapse-toggle="navbar-sticky"]');
-  const menu = document.getElementById('navbar-sticky');
-
-  toggleButton.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-  });
-</script>
-
+  </nav>
 
   <!-- Hero Section -->
-<section class="relative min-h-screen mt-16 flex items-center text-white overflow-hidden">
+  <section class="relative min-h-screen mt-16 flex items-center text-white overflow-hidden">
 
-  <!-- Background Image + Overlay -->
-  <div class="absolute inset-0">
-    <img src="image/section1_bg.jpg" class="w-full h-full object-cover">
-    <div class="absolute inset-0 bg-black/70"></div>
-  </div>
-
-  <!-- Content -->
-  <div class="relative container mx-auto px-4">
-    <!-- Flex container: column on mobile, row on md+ -->
-    <div class="flex flex-col-reverse md:flex-row items-center gap-12">
-
-      <!-- Text Content -->
-      <div class="md:w-1/2 text-center md:text-left">
-        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
-          Watch Anime <br>
-          <span class="text-orange-500">Like Never Before</span>
-        </h1>
-
-        <p class="text-gray-300 mb-8 text-base sm:text-lg md:text-xl leading-relaxed">
-          Stream top anime in ultra quality with fast loading, dark mode visuals,
-          and a cinematic watching experience.
-        </p>
-
-        <div class="flex flex-wrap justify-center md:justify-start gap-4">
-          <a href="#"
-            class="bg-orange-500 text-black px-8 py-3 rounded-full font-semibold hover:bg-orange-600 transition">
-            Watch Now
-          </a>
-          <a href="#"
-            class="border border-gray-400 px-8 py-3 rounded-full hover:border-orange-500 transition">
-            Browse Anime
-          </a>
-        </div>
-      </div>
-
-      <!-- Image Content -->
-      <div class="md:w-1/2 relative flex justify-center md:justify-end">
-        <img src="image/hero1.png" class="rounded-3xl w-full max-w-md md:max-w-full object-contain drop-shadow-2xl z-10">
-
-        <!-- Glow Effect -->
-        <div class="absolute inset-0 bg-orange-500 opacity-20 blur-3xl rounded-3xl -z-10"></div>
-      </div>
-
+    <!-- Background Image + Overlay -->
+    <div class="absolute inset-0">
+      <img src="image/section1_bg.jpg" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-black/70"></div>
     </div>
-  </div>
-</section>
 
-  <!-- Section 2: About Us -->
-  <section class="bg-gradient-to-b from-white to-gray-100 py-20">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row items-center gap-14">
+    <!-- Content -->
+    <div class="relative container mx-auto px-4">
+      <!-- Flex container: column on mobile, row on md+ -->
+      <div class="flex flex-col-reverse md:flex-row items-center gap-12">
 
-        <!-- Image -->
-        <div class="md:w-1/2 relative">
-          <img src="image/about us.png" alt="About Webtan" class="rounded-3xl w-full object-cover drop-shadow-2xl">
+        <!-- Text Content -->
+        <div class="md:w-1/2 text-center md:text-left">
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
+            Watch Anime <br>
+            <span class="text-orange-500">Like Never Before</span>
+          </h1>
 
-          <!-- Soft glow -->
-          <div class="absolute inset-0 rounded-3xl bg-orange-500 opacity-10 blur-3xl -z-10">
+          <p class="text-gray-300 mb-8 text-base sm:text-lg md:text-xl leading-relaxed">
+            Stream top anime in ultra quality with fast loading, dark mode visuals,
+            and a cinematic watching experience.
+          </p>
+
+          <div class="flex flex-wrap justify-center md:justify-start gap-4">
+            <a href="#"
+              class="bg-orange-500 text-black px-8 py-3 rounded-full font-semibold hover:bg-orange-600 transition">
+              Watch Now
+            </a>
+            <a href="#" class="border border-gray-400 px-8 py-3 rounded-full hover:border-orange-500 transition">
+              Browse Anime
+            </a>
           </div>
         </div>
 
-        <!-- Content -->
-        <div class="md:w-1/2">
-          <span class="inline-block text-orange-600 font-semibold mb-3 tracking-wider uppercase">
-            Who We Are
-          </span>
+        <!-- Image Content -->
+        <div class="md:w-1/2 relative flex justify-center md:justify-end">
+          <img src="image/hero1.png"
+            class="rounded-2xl w-full max-w-md md:max-w-full object-contain drop-shadow-2xl z-10">
 
-          <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-gray-800 leading-tight">
-            About <span class="text-orange-600">Webtan</span>
-          </h2>
-
-          <p class="text-gray-600 mb-5 leading-relaxed">
-            Webtan is a modern digital platform dedicated to creating high-quality,
-            performance-driven web experiences. We blend design, technology,
-            and creativity to deliver impactful solutions.
-          </p>
-
-          <p class="text-gray-600 mb-8 leading-relaxed">
-            Our mission is to transform ideas into powerful digital products using
-            modern tools, clean architecture, and best development practices.
-          </p>
-
-          <!-- Stats -->
-          <div class="flex gap-6 mb-8">
-            <div>
-              <h3 class="text-3xl font-bold text-orange-600">100+</h3>
-              <p class="text-sm text-gray-500">Projects</p>
-            </div>
-            <div>
-              <h3 class="text-3xl font-bold text-orange-600">5+</h3>
-              <p class="text-sm text-gray-500">Years Experience</p>
-            </div>
-            <div>
-              <h3 class="text-3xl font-bold text-orange-600">24/7</h3>
-              <p class="text-sm text-gray-500">Support</p>
-            </div>
-          </div>
-
-          <!-- Button -->
-          <a href="#"
-            class="inline-flex items-center gap-2 bg-orange-600 text-white px-7 py-3 rounded-full font-semibold hover:bg-orange-700 transition">
-            Learn More
-            <span>→</span>
-          </a>
+          <!-- Glow Effect -->
+          <div class="absolute inset-0 bg-orange-500 opacity-20 blur-2xl rounded-2xl -z-10"></div>
         </div>
 
       </div>
     </div>
   </section>
-
 
   <!-- Section: Best Anime View -->
   <section class="bg-gradient-to-r from-gray-900 via-black to-gray-900 py-20 text-white">
@@ -213,16 +138,16 @@
 
         <!-- Image -->
         <div class="md:w-1/2 relative">
-          <img src="image/narutoK.png" alt="Best Anime" class="rounded-3xl w-full object-contain drop-shadow-2xl">
+          <img src="image/narutoK.png" alt="Best Anime" class="rounded-2xl w-full object-contain drop-shadow-2xl">
 
           <!-- Glow effect -->
-          <div class="absolute inset-0 rounded-3xl bg-orange-500 opacity-20 blur-3xl -z-10">
+          <div class="absolute inset-0 rounded-2xl bg-orange-500 opacity-20 blur-2xl -z-10">
           </div>
         </div>
 
         <!-- Text -->
         <div class="md:w-1/2">
-          <h3 class="text-3xl font-bold mb-4">
+          <h3 class="text-2xl font-bold mb-4">
             Cinematic Anime Experience
           </h3>
 
@@ -259,6 +184,100 @@
     </div>
   </section>
 
+   <!-- Section: User Reviews & Stats -->
+  <section class="bg-gradient-to-b from-gray-900 to-black py-20 text-white">
+    <div class="container mx-auto px-4">
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center mb-16">
+
+        <div class="bg-gray-800 p-6 rounded-2xl">
+          <h3 class="text-4xl font-extrabold text-orange-500 counter" data-target="1000000">0</h3>
+          <p class="text-gray-400 mt-2">Total Views</p>
+        </div>
+
+        <div class="bg-gray-800 p-6 rounded-2xl">
+          <h3 class="text-4xl font-extrabold text-orange-500 counter" data-target="250000">0</h3>
+          <p class="text-gray-400 mt-2">Active Users</p>
+        </div>
+
+        <div class="bg-gray-800 p-6 rounded-2xl">
+          <h3 class="text-4xl font-extrabold text-orange-500 counter" data-target="10000">0</h3>
+          <p class="text-gray-400 mt-2">Anime Episodes</p>
+        </div>
+
+        <div class="bg-gray-800 p-6 rounded-2xl">
+          <h3 class="text-4xl font-extrabold text-orange-500 counter" data-target="4.9">0</h3>
+          <p class="text-gray-400 mt-2">User Rating</p>
+        </div>
+
+      </div>
+
+
+      <!-- Reviews Header -->
+      <div class="text-center mb-14">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4">
+          What <span class="text-orange-500">Users Say</span>
+        </h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">
+          Real reviews from anime lovers who stream with WebTan every day.
+        </p>
+      </div>
+
+      <!-- Reviews -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Review Card -->
+        <div class="bg-gray-800 p-6 rounded-2xl hover:scale-105 transition">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="https://i.pravatar.cc/100?img=12" class="w-12 h-12 rounded-full" alt="">
+            <div>
+              <h4 class="font-semibold">Akash Rahman</h4>
+              <p class="text-sm text-gray-400">Anime Fan</p>
+            </div>
+          </div>
+          <p class="text-gray-300 mb-4">
+            “WebTan gives the smoothest anime experience I’ve ever used. Zero buffering and amazing quality!”
+          </p>
+          <div class="text-orange-500 text-lg">★★★★★</div>
+        </div>
+
+        <!-- Review Card -->
+        <div class="bg-gray-800 p-6 rounded-2xl hover:scale-105 transition">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="https://i.pravatar.cc/100?img=22" class="w-12 h-12 rounded-full" alt="">
+            <div>
+              <h4 class="font-semibold">Nusrat Jahan</h4>
+              <p class="text-sm text-gray-400">Otaku</p>
+            </div>
+          </div>
+          <p class="text-gray-300 mb-4">
+            “Dark mode, HD visuals, and fast streaming — WebTan feels like Netflix for anime.”
+          </p>
+          <div class="text-orange-500 text-lg">★★★★★</div>
+        </div>
+
+        <!-- Review Card -->
+        <div class="bg-gray-800 p-6 rounded-2xl hover:scale-105 transition">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="https://i.pravatar.cc/100?img=35" class="w-12 h-12 rounded-full" alt="">
+            <div>
+              <h4 class="font-semibold">Rafi Ahmed</h4>
+              <p class="text-sm text-gray-400">Streamer</p>
+            </div>
+          </div>
+          <p class="text-gray-300 mb-4">
+            “I watch anime daily, and WebTan never disappoints. Clean UI and fast load every time.”
+          </p>
+          <div class="text-orange-500 text-lg">★★★★☆</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
   <!-- Section: Anime Watch -->
   <section class="bg-black py-20 text-white relative overflow-hidden">
     <div class="container mx-auto px-4">
@@ -279,24 +298,25 @@
 
         <!-- Video / Poster -->
         <div class="md:w-1/2 relative group">
-          <img src="image/narutoK.png" alt="Watch Anime" class="rounded-3xl w-full object-contain shadow-2xl">
+          <img src="image/narutoK.png" alt="Watch Anime" class="rounded-2xl w-full object-contain shadow-2xl">
 
           <!-- Play Button -->
-<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-  <a href="anime.html" class="bg-orange-500 p-6 rounded-full shadow-xl hover:scale-110 transition cursor-pointer flex items-center justify-center">
-    <i class='bx bx-play text-white text-4xl'></i>
-  </a>
-</div>
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+            <a href="anime.html"
+              class="bg-orange-500 p-6 rounded-full shadow-xl hover:scale-110 transition cursor-pointer flex items-center justify-center">
+              <i class='bx bx-play text-white text-4xl'></i>
+            </a>
+          </div>
 
 
           <!-- Glow -->
-          <div class="absolute inset-0 bg-orange-500 opacity-20 blur-3xl rounded-3xl -z-10">
+          <div class="absolute inset-0 bg-orange-500 opacity-20 blur-2xl rounded-2xl -z-10">
           </div>
         </div>
 
         <!-- Text -->
         <div class="md:w-1/2">
-          <h3 class="text-3xl font-bold mb-4">
+          <h3 class="text-2xl font-bold mb-4">
             Unlimited Anime Streaming
           </h3>
 
@@ -341,18 +361,17 @@
     </div>
   </section>
 
-
   <!-- Footer -->
   <footer class="bg-black text-gray-400 pt-16">
     <div class="container mx-auto px-4">
 
       <!-- Top Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-12">
 
         <!-- Brand -->
         <div>
           <h3 class="text-2xl font-bold text-white mb-4">
-            Web<span class="text-orange-500">Tan</span>
+            WT<span class="text-orange-500">Anime</span>
           </h3>
           <p class="text-sm leading-relaxed">
             Your ultimate anime watching platform. Stream high-quality anime
@@ -407,25 +426,69 @@
 
         <!-- Social -->
         <div class="flex gap-4 mt-4 md:mt-0">
-          <a href="#" class="hover:text-orange-500 transition">Facebook</a>
-          <a href="#" class="hover:text-orange-500 transition">Twitter</a>
-          <a href="#" class="hover:text-orange-500 transition">Instagram</a>
+          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-facebook-circle'></i></a>
+          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-twitter' ></i></a>
+          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-youtube' ></i></a>
+          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-instagram-alt' ></i></a>
         </div>
       </div>
 
     </div>
   </footer>
 
-
   <!-- Tailwind JS for Navbar Toggle -->
+  <script src="js/navbar.js"></script>
+  <script src="js/tailwindcss.js"></script>
   <script>
-    const navToggle = document.getElementById('nav-toggle');
-    const navContent = document.getElementById('nav-content');
+  document.addEventListener("DOMContentLoaded", () => {
 
-    navToggle.addEventListener('click', () => {
-      navContent.classList.toggle('hidden');
+    const counters = document.querySelectorAll(".counter");
+
+    counters.forEach(counter => {
+      const target = parseFloat(counter.dataset.target);
+      const isDecimal = target % 1 !== 0;
+      let current = 0;
+
+      // Speed control
+      const duration = 1500; // total animation time (ms)
+      const startTime = performance.now();
+
+      function animateCounter(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Ease-out effect
+        const easedProgress = 1 - Math.pow(1 - progress, 3);
+        const value = easedProgress * target;
+
+        if (isDecimal) {
+          counter.innerText = value.toFixed(1);
+        } else {
+          counter.innerText = formatNumber(Math.floor(value));
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(animateCounter);
+        } else {
+          // Final value fix
+          counter.innerText = isDecimal
+            ? target.toFixed(1) + "★"
+            : formatNumber(target);
+        }
+      }
+
+      requestAnimationFrame(animateCounter);
     });
-  </script>
+
+    function formatNumber(num) {
+      if (num >= 1000000) return (num / 1000000).toFixed(1) + "M+";
+      if (num >= 1000) return (num / 1000).toFixed(0) + "K+";
+      return num + "+";
+    }
+
+  });
+</script>
+
 
 </body>
 
