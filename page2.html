@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Page - User Info</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 p-6">
+
+  <div class="max-w-5xl mx-auto bg-white shadow-lg rounded-lg p-6">
+    <h2 class="text-2xl font-bold mb-4">Admin Panel - User Info</h2>
+
+    <table class="min-w-full border border-gray-300">
+      <thead>
+        <tr class="bg-gray-300">
+          <th class="px-4 py-2 text-left">Image</th>
+          <th class="px-4 py-2 text-left">Name</th>
+          <th class="px-4 py-2 text-left">Age</th>
+          <th class="px-4 py-2 text-left">Phone</th>
+          <th class="px-4 py-2 text-left">Country</th>
+          <th class="px-4 py-2 text-left">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="adminTableBody">
+        <!-- JS will populate -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    let data = [];
+
+    // Load CSV file
+    async function loadCSV() {
+      try {
+        const response = await fetch('user.csv'); // Your CSV path
+        if (!response.ok) throw new Error('CSV file not found');
+
+        const text = await response.text();
+        const rows = text.split('\n').slice(1); // skip header
+
+        data = rows
+          .filter(r => r.trim() !== "")
+          .map(r => {
+            const [name, age, phone, country, image] = r.split(',').map(c => c.trim());
+            return { name, age, phone, country, image };
+          });
+
+        renderTable();
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    const tableBody = document.getElementById('adminTableBody');
+
+    // Render Table
+    function renderTable() {
+      tableBody.innerHTML = '';
+      data.forEach((item, index) => {
+        const row = document.createElement('tr');
+        row.classList.add('border-b');
+        row.innerHTML = `
+          <td class="px-4 py-2">
+            <img src="${item.image || 'https://i.pravatar.cc/150?img=65'}" alt="${item.name}" class="w-12 h-12 rounded-full object-cover">
+          </td>
+          <td class="px-4 py-2">${item.name}</td>
+          <td class="px-4 py-2">${item.age}</td>
+          <td class="px-4 py-2">${item.phone}</td>
+          <td class="px-4 py-2">${item.country}</td>
+          <td class="px-4 py-2 space-x-2">
+            <button onclick="editRow(${index})" class="bg-blue-500 text-white px-2 py-1 rounded">Edit</button>
+            <button onclick="deleteRow(${index})" class="bg-red-500 text-white px-2 py-1 rounded">Delete</button>
+          </td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    // Edit Row
+    function editRow(index) {
+      const item = data[index];
+      const newName = prompt("Enter Name:", item.name);
+      const newAge = prompt("Enter Age:", item.age);
+      const newPhone = prompt("Enter Phone:", item.phone);
+      const newCountry = prompt("Enter Country:", item.country);
+      const newImage = prompt("Enter Image URL:", item.image);
+
+      if(newName && newAge && newPhone && newCountry && newImage){
+        data[index] = {
+          name: newName.trim(),
+          age: newAge.trim(),
+          phone: newPhone.trim(),
+          country: newCountry.trim(),
+          image: newImage.trim()
+        };
+        renderTable(); // Refresh table
+      }
+    }
+
+    // Delete Row
+    function deleteRow(index) {
+      if(confirm("Are you sure to delete this row?")) {
+        data.splice(index, 1);
+        renderTable(); // Refresh table
+      }
+    }
+
+    loadCSV();
+  </script>
+
+</body>
+</html>

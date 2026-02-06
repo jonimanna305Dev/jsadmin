@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend User Cards</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+
+<section class="container mx-auto">
+  <h2 class="text-3xl font-bold text-center mb-6">User Info</h2>
+
+  <!-- Cards container -->
+  <div id="cardsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <!-- Cards will appear here -->
+  </div>
+
+  <!-- Hidden card template -->
+  <template id="cardTemplate">
+    <div class="bg-white shadow-lg rounded-lg p-4 flex flex-col items-center hover:scale-105 transform transition duration-300">
+      <img src="" alt="" class="w-24 h-24 rounded-full object-cover mb-4">
+      <h3 class="text-xl font-semibold mb-1 hover:text-green-600"></h3>
+      <p class="text-gray-600 mb-1"><strong>Age:</strong> <span class="age"></span></p>
+      <p class="text-gray-600 mb-1"><strong>Phone:</strong> <span class="phone"></span></p>
+      <p class="text-gray-600"><strong>Country:</strong> <span class="country"></span></p>
+    </div>
+  </template>
+</section>
+
+<script>
+async function loadCSV() {
+  try {
+    const response = await fetch('user.csv');
+    if (!response.ok) throw new Error('CSV file not found');
+    const text = await response.text();
+
+    const rows = text.split('\n').slice(1); // skip header
+    const container = document.getElementById('cardsContainer');
+    const template = document.getElementById('cardTemplate');
+
+    rows.forEach(row => {
+      const cols = row.split(',');
+      if (cols.length < 5) return;
+
+      const clone = template.content.cloneNode(true);
+
+      clone.querySelector('img').src = cols[4].trim() || 'https://i.pravatar.cc/150?img=65';
+      clone.querySelector('img').alt = cols[0].trim();
+      clone.querySelector('h3').textContent = cols[0].trim();
+      clone.querySelector('.age').textContent = cols[1].trim();
+      clone.querySelector('.phone').textContent = cols[2].trim();
+      clone.querySelector('.country').textContent = cols[3].trim();
+
+      container.appendChild(clone);
+    });
+  } catch (error) {
+    console.error('Error loading CSV:', error);
+  }
+}
+
+loadCSV();
+</script>
+
+</body>
+</html>
