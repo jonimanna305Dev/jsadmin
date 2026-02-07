@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,7 @@
 
 <body class="bg-gray-100 text-gray-800">
 
-<!-- Fixed Navbar -->
+  <!-- Fixed Navbar -->
   <nav class="bg-orange-600 fixed w-full z-20 top-0 left-0 border-b border-orange-700">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between p-4">
 
@@ -66,51 +67,42 @@
     </div>
   </nav>
 
-<!-- HERO -->
-<section class="bg-gradient-to-b from-black to-gray-900 text-white py-28 ">
-  <div class="container mx-auto px-4 text-center">
-    <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
-      Explore <span class="text-orange-500">Anime</span>
-    </h1>
-    <p class="text-gray-400 max-w-2xl mx-auto">
-      Watch your favorite anime anytime. Stream in HD with subtitles or dubs.
-    </p>
-  </div>
-</section>
+  <!-- HERO -->
+  <section class="bg-gradient-to-b from-black to-gray-900 text-white py-28 ">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4"> Explore <span class="text-orange-500">Anime</span> </h1>
+      <p class="text-gray-400 max-w-2xl mx-auto"> Watch your favorite anime anytime. Stream in HD with subtitles or
+        dubs. </p>
+    </div>
+  </section>
 
-<!-- ANIME GRID -->
-<section class="py-28 bg-gray-900 text-white">
-  <div class="container mx-auto px-4">
-
-    <h2 class="text-3xl md:text-4xl font-extrabold mb-10 text-center">
-      Trending Anime
-    </h2>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-      <!-- Anime Card -->
-      <div class="bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:scale-105 transition transform cursor-pointer">
-        <img src="image/black cover.jpg" alt="Attack on Titan"
-             class="w-full h-64 object-cover">
-        <div class="p-4">
-          <a href="watch.html"><h3 class="text-xl font-bold mb-2 hover:text-orange-500 transition">Black Cover</h3></a>
-          <p class="text-gray-400 text-sm mb-2">Action, Anime</p>
-        </div>
+  <!-- ANIME GRID -->
+  <section class="py-8 bg-gray-900 text-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-extrabold mb-10 text-center">
+        Trending Anime
+      </h2>
+      <!-- Cards Container -->
+      <div id="cardsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
       </div>
 
-      <div class="bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:scale-105 transition transform cursor-pointer">
-        <img src="image/naruto.webp" alt="Attack on Titan"
-             class="w-full h-64 object-cover">
-        <div class="p-4">
-          <a href="watch1.html"><h3 class="text-xl font-bold mb-2 hover:text-orange-500 transition">Naruto</h3></a>
-          <p class="text-gray-400 text-sm mb-2">Action, Anime</p>
-        </div>
+    </div>
+  </section>
+
+  <!-- CARD TEMPLATE -->
+  <template id="cardTemplate">
+    <div class="bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:scale-105 transition cursor-pointer">
+      <img src="" alt="" class="w-full h-64 object-cover">
+      <div class="p-4">
+        <a class="anime-link" href="">
+          <h3 class="text-xl font-bold mb-2 hover:text-orange-500 transition line-clamp-1"></h3>
+        </a>
+        <p class="category text-gray-400 text-sm"></p>
       </div>
     </div>
+  </template>
 
-  </div>
-</section>
-
-<!-- Footer -->
+  <!-- Footer -->
   <footer class="bg-black text-gray-400 pt-16">
     <div class="container mx-auto px-4">
 
@@ -176,18 +168,20 @@
         <!-- Social -->
         <div class="flex gap-4 mt-4 md:mt-0">
           <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-facebook-circle'></i></a>
-          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-twitter' ></i></a>
-          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-youtube' ></i></a>
-          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-instagram-alt' ></i></a>
+          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-twitter'></i></a>
+          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-youtube'></i></a>
+          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-instagram-alt'></i></a>
         </div>
       </div>
 
     </div>
   </footer>
 
-<!-- Navbar Toggle -->
-<script src="js/navbar.js"></script>
-<script src="js/tailwindcss.js"></script>
+  <!-- scrpt-->
+  <script src="js/navbar.js"></script>
+  <script src="js/tailwindcss.js"></script>
+  <script src="js/anime.js"></script>
 
 </body>
+
 </html>

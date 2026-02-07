@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Black Cover",
+    "category": "Action Anime",
+    "file": "watch.html?anime=Black Cover",
+    "image": "image/black cover.jpg",
+    "video": "videos/black clover.mp4",
+    "description": "Black Clover follows Asta, a boy born without magic in a world where magic is everything."
+  },
+  {
+    "title": "Naruto",
+    "category": "Action Anime",
+    "file": "watch.html?anime=Naruto",
+    "image": "image/naruto.webp",
+    "video": "videos/naruto.mp4",
+    "description": "Naruto Uzumaki dreams of becoming the strongest ninja and Hokage of his village."
+  },
+  {
+    "title": "Demon Slayer",
+    "category": "Dark Fantasy Anime",
+    "file": "watch.html?anime=Demon Slayer",
+    "image": "image/demon slayer.webp",
+    "video": "",
+    "description": "No description available."
+  },
+  {
+    "title": "Solo Leveling",
+    "category": "Action Anime",
+    "file": "watch.html?anime=Solo Leveling",
+    "image": "image/solo leveling.jpg",
+    "video": "",
+    "description": "No description available."
+  },
+  {
+    "title": "That Time I Got Reincarnated as a Slime",
+    "category": "Isekai Action Anime",
+    "file": "watch.html?anime=That Time I Got Reincarnated as a Slime",
+    "image": "image/that time...jpg",
+    "video": "",
+    "description": "That Time I Got Reincarnated as a Slime follows Satoru Mikami, an ordinary man who is killed and reborn in a fantasy world as a slime. With unique abilities and a calm mind, he begins building a powerful nation where monsters and humans can live together."
+  },
+  {
+    "title": "The Reincarnation of the Strongest Exorcist in Another World",
+    "category": "Isekai Action Anime",
+    "file": "watch.html?anime=The Reincarnation of the Strongest Exorcist in Another World",
+    "image": "image/The Reincarnation.jpg",
+    "video": "",
+    "description": "No description available."
+  }
+]

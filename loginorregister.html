@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login / Register | Webtan</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900">
@@ -14,7 +15,7 @@
 
     <!-- Left Image (hidden on mobile) -->
     <div class="hidden md:block">
-      <img src="image/20944.jpg" alt="Login Image" class="h-full w-full object-cover">
+      <img src="image/login-register.png" alt="Login Image" class="h-full w-full object-cover">
     </div>
 
     <!-- Right Form -->
@@ -91,13 +92,13 @@
   const registerForm = document.getElementById('register-form');
   const formTitle = document.getElementById('form-title');
 
+  // Toggle forms
   document.getElementById('show-register').onclick = e => {
     e.preventDefault();
     loginForm.classList.add('hidden');
     registerForm.classList.remove('hidden');
     formTitle.innerText = 'Register';
   };
-
   document.getElementById('show-login').onclick = e => {
     e.preventDefault();
     registerForm.classList.add('hidden');
@@ -105,6 +106,7 @@
     formTitle.innerText = 'Login';
   };
 
+  // Register
   registerForm.addEventListener('submit', e => {
     e.preventDefault();
     const name = document.getElementById('register-name').value.trim();
@@ -112,13 +114,13 @@
     const password = document.getElementById('register-password').value;
     const confirmPassword = document.getElementById('register-confirm-password').value;
 
-    if (password !== confirmPassword) {
+    if(password !== confirmPassword){
       alert('Password and Confirm Password do not match!');
       return;
     }
 
     let users = JSON.parse(localStorage.getItem('users')) || [];
-    if (users.find(u => u.email === email)) {
+    if(users.find(u => u.email === email)){
       alert('User already exists!');
       return;
     }
@@ -126,9 +128,11 @@
     users.push({ name, email, password });
     localStorage.setItem('users', JSON.stringify(users));
 
+    alert('Registration successful! Please login.');
     document.getElementById('show-login').click();
   });
 
+  // Login
   loginForm.addEventListener('submit', e => {
     e.preventDefault();
     const email = document.getElementById('login-email').value.trim();
@@ -137,13 +141,14 @@
     let users = JSON.parse(localStorage.getItem('users')) || [];
     const user = users.find(u => u.email === email && u.password === password);
 
-    if (user) {
+    if(user){
       localStorage.setItem('currentUser', JSON.stringify(user));
-      window.location.href = 'dashboard.html';
+      window.location.href = 'admin/dashboard.html';
     } else {
       alert('Invalid credentials!');
     }
   });
 </script>
+
 </body>
 </html>
