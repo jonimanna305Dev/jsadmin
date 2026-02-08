@@ -58,7 +58,7 @@
         </ul>
 
         <!-- Mobile Login Button -->
-        <a href="login.html"
+        <a href="loginorregister.html"
           class="block mt-3 md:hidden w-full text-center bg-black text-orange-600 font-semibold px-4 py-2 rounded-full hover:bg-gray-100 transition">
           Login
         </a>
@@ -79,11 +79,25 @@
   <!-- ANIME GRID -->
   <section class="py-8 bg-gray-900 text-white">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-extrabold mb-10 text-center">
+      <h2 class="text-3xl font-extrabold mb-20 text-center">
         Trending Anime
       </h2>
       <!-- Cards Container -->
       <div id="cardsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      </div>
+
+      <div class="flex justify-center items-center gap-4 mt-10">
+        <button id="prevBtn"
+          class="px-4 py-2 bg-gray-700 text-white rounded-full disabled:opacity-40 hover:bg-orange-500 transition">
+          Prev
+        </button>
+
+        <div id="pageNumbers" class="flex gap-2"></div>
+
+        <button id="nextBtn"
+          class="px-4 py-2 bg-gray-700 text-white rounded-full disabled:opacity-40 hover:bg-orange-500 transition">
+          Next
+        </button>
       </div>
 
     </div>
@@ -91,16 +105,20 @@
 
   <!-- CARD TEMPLATE -->
   <template id="cardTemplate">
-    <div class="bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:scale-105 transition cursor-pointer">
-      <img src="" alt="" class="w-full h-64 object-cover">
-      <div class="p-4">
+    <div
+      class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg cursor-pointer flex md:block hover:scale-[1.02] transition">
+      <!-- Image -->
+      <img src="" alt="" class="w-32 h-24 md:w-full md:h-64 object-cover flex-shrink-0">
+      <!-- Content -->
+      <div class="p-3 md:p-4 flex flex-col justify-center">
         <a class="anime-link" href="">
-          <h3 class="text-xl font-bold mb-2 hover:text-orange-500 transition line-clamp-1"></h3>
+          <h3 class="text-sm md:text-xl font-bold hover:text-orange-500 transition line-clamp-1"></h3>
         </a>
-        <p class="category text-gray-400 text-sm"></p>
+        <p class="category text-gray-400 text-xs md:text-sm line-clamp-1"></p>
       </div>
     </div>
   </template>
+
 
   <!-- Footer -->
   <footer class="bg-black text-gray-400 pt-16">

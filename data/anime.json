@@ -37,7 +37,7 @@
     "file": "watch.html?anime=That Time I Got Reincarnated as a Slime",
     "image": "image/that time...jpg",
     "video": "",
-    "description": "That Time I Got Reincarnated as a Slime follows Satoru Mikami, an ordinary man who is killed and reborn in a fantasy world as a slime. With unique abilities and a calm mind, he begins building a powerful nation where monsters and humans can live together."
+    "description": "That Time I Got Reincarnated as a Slime follows Satoru Mikami, an ordinary man who is killed and reborn in a fantasy world as a slime."
   },
   {
     "title": "The Reincarnation of the Strongest Exorcist in Another World",
@@ -46,5 +46,62 @@
     "image": "image/The Reincarnation.jpg",
     "video": "",
     "description": "No description available."
+  },
+  {
+    "title": "Dark Moon: The Blood Alter",
+    "category": "Isekai Action Anime",
+    "file": "watch.html?anime=Dark Moon: The Blood Alter",
+    "image": "image/dark moon.jpg",
+    "video": "",
+    "description": "Seven vampire boys hide their past while fate pulls them toward a human girl."
+  },
+  {
+    "title": "Horimiya",
+    "category": "Love story anime",
+    "file": "watch.html?anime=Horimiya",
+    "image": "image/horimiya.jpg",
+    "video": "",
+    "description": "Two very different people meet and develop a friendship that turns into love."
+  },
+  {
+    "title": "An Archdemon's Dilemma: How to Love Your Elf Bride",
+    "category": "Love story anime",
+    "file": "watch.html?anime=An Archdemon's Dilemma: How to Love Your Elf Bride",
+    "image": "image/an.avif",
+    "video": "",
+    "description": "An awkward sorcerer tries to express love to a timid elf bride."
+  },
+
+  {
+    "title": "Attack on Titan",
+    "category": "Dark Action Anime",
+    "file": "watch.html?anime=Attack on Titan",
+    "image": "image/aot.jpg",
+    "video": "",
+    "description": "Humanity fights for survival against giant humanoid Titans."
+  },
+  {
+    "title": "Jujutsu Kaisen",
+    "category": "Dark Fantasy Anime",
+    "file": "watch.html?anime=Jujutsu Kaisen",
+    "image": "image/jujutsu.jpg",
+    "video": "",
+    "description": "A high school student becomes involved in the world of cursed spirits."
+  },
+  {
+    "title": "One Piece",
+    "category": "Adventure Action Anime",
+    "file": "watch.html?anime=One Piece",
+    "image": "image/one piece.jpg",
+    "video": "",
+    "description": "Monkey D. Luffy sets out to become the Pirate King."
+  },
+  {
+    "title": "Your Name",
+    "category": "Romance Fantasy Anime",
+    "file": "watch.html?anime=Your Name",
+    "image": "image/your name.jpg",
+    "video": "",
+    "description": "Two strangers are mysteriously connected through dreams and time."
   }
 ]
