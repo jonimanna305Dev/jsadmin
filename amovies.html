@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WTAnime - About Us</title>
+  <title>WTAnime - Explore Anime</title>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
@@ -69,76 +70,58 @@
     </div>
   </nav>
 
-  <!-- ABOUT HERO -->
-  <section class="bg-gradient-to-b from-black to-gray-900 text-white py-32">
+  <!-- HERO -->
+  <section class="bg-gradient-to-b from-black to-gray-900 text-white py-28 ">
     <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
-        About <span class="text-orange-500">Webtan</span>
-      </h1>
-      <p class="text-gray-400 max-w-2xl mx-auto">
-        We build modern, high-quality digital experiences with creativity,
-        technology, and performance in mind.
-      </p>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4"> Explore <span class="text-orange-500">Anime</span> Movies</h1>
+      <p class="text-gray-400 max-w-2xl mx-auto"> Watch your favorite anime anytime. Stream in HD with subtitles or
+        dubs. </p>
     </div>
   </section>
 
-  <!-- ABOUT CONTENT -->
-  <section class="bg-white py-20">
+  <!-- ANIME GRID -->
+  <section class="py-8 bg-gray-900 text-white">
     <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row items-center gap-14">
+      <h2 class="text-3xl font-extrabold mb-20 text-center">
+        Trending Anime movies
+      </h2>
+      <!-- Cards Container -->
+      <div id="cardsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      </div>
 
-        <!-- Image -->
-        <div class="md:w-1/2 relative">
-          <img src="image/about us.png" alt="About Webtan" class="rounded-3xl w-full object-cover drop-shadow-2xl">
-          <div class="absolute inset-0 bg-orange-500 opacity-10 blur-3xl rounded-3xl -z-10"></div>
-        </div>
+      <div class="flex justify-center items-center gap-4 mt-10">
+        <button id="prevBtn"
+          class="px-4 py-2 bg-gray-700 text-white rounded-full disabled:opacity-40 hover:bg-orange-500 transition">
+          Prev
+        </button>
 
-        <!-- Text -->
-        <div class="md:w-1/2">
-          <span class="text-orange-600 font-semibold uppercase tracking-wider">
-            Who We Are
-          </span>
+        <div id="pageNumbers" class="flex gap-2"></div>
 
-          <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-3 mb-6">
-            Building Digital Experiences
-          </h2>
+        <button id="nextBtn"
+          class="px-4 py-2 bg-gray-700 text-white rounded-full disabled:opacity-40 hover:bg-orange-500 transition">
+          Next
+        </button>
+      </div>
 
-          <p class="text-gray-600 mb-5 leading-relaxed">
-            Webtan is a modern digital platform focused on delivering high-performance,
-            visually stunning, and user-friendly web solutions. We combine design,
-            technology, and creativity to build impactful products.
-          </p>
+    </div>
+  </section>
 
-          <p class="text-gray-600 mb-8 leading-relaxed">
-            Our mission is to transform ideas into scalable digital products using
-            modern tools, clean architecture, and industry best practices.
-          </p>
-
-          <!-- Stats -->
-          <div class="flex gap-8 mb-8">
-            <div>
-              <h3 class="text-3xl font-bold text-orange-600">100+</h3>
-              <p class="text-sm text-gray-500">Projects</p>
-            </div>
-            <div>
-              <h3 class="text-3xl font-bold text-orange-600">5+</h3>
-              <p class="text-sm text-gray-500">Years</p>
-            </div>
-            <div>
-              <h3 class="text-3xl font-bold text-orange-600">24/7</h3>
-              <p class="text-sm text-gray-500">Support</p>
-            </div>
-          </div>
-
-          <a href="contact.html"
-            class="inline-flex items-center gap-2 bg-orange-600 text-white px-7 py-3 rounded-full font-semibold hover:bg-orange-700 transition">
-            Contact Us →
-          </a>
-        </div>
-
+  <!-- CARD TEMPLATE -->
+  <template id="cTemplate">
+    <div
+      class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg cursor-pointer flex md:block hover:scale-[1.02] transition">
+      <!-- Image -->
+      <img src="" alt="" class="w-32 h-24 md:w-full md:h-64 object-cover flex-shrink-0">
+      <!-- Content -->
+      <div class="p-3 md:p-4 flex flex-col justify-center">
+        <a class="anime-link" href="">
+          <h3 class="text-sm md:text-xl font-bold hover:text-orange-500 transition line-clamp-1"></h3>
+        </a>
+        <p class="category text-gray-400 text-xs md:text-sm line-clamp-1"></p>
       </div>
     </div>
-  </section>
+  </template>
+
 
   <!-- Footer -->
   <footer class="bg-black text-gray-400 pt-16">
@@ -206,17 +189,20 @@
         <!-- Social -->
         <div class="flex gap-4 mt-4 md:mt-0">
           <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-facebook-circle'></i></a>
-          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-twitter' ></i></a>
-          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-youtube' ></i></a>
-          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-instagram-alt' ></i></a>
+          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-twitter'></i></a>
+          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-youtube'></i></a>
+          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-instagram-alt'></i></a>
         </div>
       </div>
 
     </div>
   </footer>
-  <!-- Navbar Toggle -->
+
+  <!-- scrpt-->
   <script src="js/navbar.js"></script>
   <script src="js/tailwindcss.js"></script>
+  <script src="js/movie.js"></script>
+
 </body>
 
 </html>

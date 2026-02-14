@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Website</title>
+  <title>WTAnime - Home</title>
   <!-- Tailwind CSS CDN -->
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -52,6 +52,9 @@
           </li>
           <li>
             <a href="anime.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Anime</a>
+          </li>
+          <li>
+            <a href="amovies.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Movies</a>
           </li>
           <li>
             <a href="contact.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Contact</a>
@@ -118,73 +121,7 @@
     </div>
   </section>
 
-  <!-- Section: Best Anime View -->
-  <section class="bg-gradient-to-r from-gray-900 via-black to-gray-900 py-20 text-white">
-    <div class="container mx-auto px-4">
-
-      <!-- Section Header -->
-      <div class="text-center mb-14">
-        <h2 class="text-4xl md:text-5xl font-extrabold mb-4">
-          Best <span class="text-orange-500">Anime</span> View
-        </h2>
-        <p class="text-gray-300 max-w-2xl mx-auto">
-          Experience anime visuals like never before — sharp, cinematic,
-          and crafted for true anime lovers.
-        </p>
-      </div>
-
-      <!-- Content -->
-      <div class="flex flex-col md:flex-row items-center gap-12">
-
-        <!-- Image -->
-        <div class="md:w-1/2 relative">
-          <img src="image/narutoK.png" alt="Best Anime" class="rounded-2xl w-full object-contain drop-shadow-2xl">
-
-          <!-- Glow effect -->
-          <div class="absolute inset-0 rounded-2xl bg-orange-500 opacity-20 blur-2xl -z-10">
-          </div>
-        </div>
-
-        <!-- Text -->
-        <div class="md:w-1/2">
-          <h3 class="text-2xl font-bold mb-4">
-            Cinematic Anime Experience
-          </h3>
-
-          <p class="text-gray-300 mb-6 leading-relaxed">
-            Dive into a visually stunning anime experience with high-resolution
-            artwork, smooth layouts, and immersive design. Perfect for showcasing
-            anime characters, fan art, or anime-based platforms.
-          </p>
-
-          <!-- Features -->
-          <ul class="space-y-3 mb-8">
-            <li class="flex items-center gap-3">
-              <span class="w-3 h-3 bg-orange-500 rounded-full"></span>
-              Ultra HD Anime Visuals
-            </li>
-            <li class="flex items-center gap-3">
-              <span class="w-3 h-3 bg-orange-500 rounded-full"></span>
-              Dark Mode Optimized
-            </li>
-            <li class="flex items-center gap-3">
-              <span class="w-3 h-3 bg-orange-500 rounded-full"></span>
-              Fully Responsive Design
-            </li>
-          </ul>
-
-          <!-- Button -->
-          <a href="#"
-            class="inline-block bg-orange-500 text-black font-semibold px-8 py-3 rounded-full hover:bg-orange-600 transition">
-            Explore Anime
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-   <!-- Section: User Reviews & Stats -->
+  <!-- Section: User Reviews & Stats -->
   <section class="bg-gradient-to-b from-gray-900 to-black py-20 text-white">
     <div class="container mx-auto px-4">
 
@@ -210,70 +147,137 @@
           <h3 class="text-4xl font-extrabold text-orange-500 counter" data-target="4.9">0</h3>
           <p class="text-gray-400 mt-2">User Rating</p>
         </div>
-
       </div>
+    </div>
+  </section>
 
-
-      <!-- Reviews Header -->
+  <section class="py-10 bg-gradient-to-b from-gray-900 to-black text-white">
+    <div class="container mx-auto px-4">
+      <!-- Header -->
       <div class="text-center mb-14">
         <h2 class="text-4xl md:text-5xl font-extrabold mb-4">
-          What <span class="text-orange-500">Users Say</span>
+          Top <span class="text-orange-500">Anime</span> & <span class="text-orange-500">Movies</span>
         </h2>
         <p class="text-gray-400 max-w-2xl mx-auto">
-          Real reviews from anime lovers who stream with WebTan every day.
+          Stream your favorite anime in high quality with smooth performance
+          and immersive visuals.
         </p>
       </div>
 
-      <!-- Reviews -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Header -->
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl md:text-3xl font-bold text-white">
+          Top <span class="text-orange-500">Anime</span> Srices
+        </h2>
 
-        <!-- Review Card -->
-        <div class="bg-gray-800 p-6 rounded-2xl hover:scale-105 transition">
-          <div class="flex items-center gap-4 mb-4">
-            <img src="https://i.pravatar.cc/100?img=12" class="w-12 h-12 rounded-full" alt="">
-            <div>
-              <h4 class="font-semibold">Akash Rahman</h4>
-              <p class="text-sm text-gray-400">Anime Fan</p>
-            </div>
+        <a href="anime.html" class="text-sm md:text-base text-orange-500 hover:text-orange-400 transition font-semibold">
+          See All →
+        </a>
+      </div>
+
+      <!-- Anime Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+        <!-- Card 1 -->
+        <div
+          class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg cursor-pointer hover:scale-[1.03] transition duration-300">
+          <img src="image/demon slayer.webp" class="w-full h-52 object-cover">
+
+          <div class="p-4">
+            <h3 class="text-sm md:text-lg font-bold text-white hover:text-orange-500 transition line-clamp-1">
+              Demon Slayer
+            </h3>
+
+            <p class="text-gray-400 text-xs md:text-sm mt-1 line-clamp-1">
+              Action • Fantasy • Adventure
+            </p>
           </div>
-          <p class="text-gray-300 mb-4">
-            “WebTan gives the smoothest anime experience I’ve ever used. Zero buffering and amazing quality!”
-          </p>
-          <div class="text-orange-500 text-lg">★★★★★</div>
         </div>
 
-        <!-- Review Card -->
-        <div class="bg-gray-800 p-6 rounded-2xl hover:scale-105 transition">
-          <div class="flex items-center gap-4 mb-4">
-            <img src="https://i.pravatar.cc/100?img=22" class="w-12 h-12 rounded-full" alt="">
-            <div>
-              <h4 class="font-semibold">Nusrat Jahan</h4>
-              <p class="text-sm text-gray-400">Otaku</p>
-            </div>
+        <!-- Card 2 -->
+        <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:scale-[1.03] transition duration-300">
+          <img src="image/naruto.webp" class="w-full h-52 object-cover">
+          <div class="p-4">
+            <h3 class="text-sm md:text-lg font-bold text-white hover:text-orange-500 transition line-clamp-1">
+              Naruto
+            </h3>
+            <p class="text-gray-400 text-xs md:text-sm mt-1 line-clamp-1">
+              Action • Ninja • Adventure
+            </p>
           </div>
-          <p class="text-gray-300 mb-4">
-            “Dark mode, HD visuals, and fast streaming — WebTan feels like Netflix for anime.”
-          </p>
-          <div class="text-orange-500 text-lg">★★★★★</div>
         </div>
 
-        <!-- Review Card -->
-        <div class="bg-gray-800 p-6 rounded-2xl hover:scale-105 transition">
-          <div class="flex items-center gap-4 mb-4">
-            <img src="https://i.pravatar.cc/100?img=35" class="w-12 h-12 rounded-full" alt="">
-            <div>
-              <h4 class="font-semibold">Rafi Ahmed</h4>
-              <p class="text-sm text-gray-400">Streamer</p>
-            </div>
+        <!-- Card 3 -->
+        <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:scale-[1.03] transition duration-300">
+          <img src="image/one piece.jpg" class="w-full h-52 object-cover">
+          <div class="p-4">
+            <h3 class="text-sm md:text-lg font-bold text-white hover:text-orange-500 transition line-clamp-1">
+              One Piece
+            </h3>
+            <p class="text-gray-400 text-xs md:text-sm mt-1 line-clamp-1">
+              Pirate • Adventure • Fantasy
+            </p>
           </div>
-          <p class="text-gray-300 mb-4">
-            “I watch anime daily, and WebTan never disappoints. Clean UI and fast load every time.”
-          </p>
-          <div class="text-orange-500 text-lg">★★★★☆</div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:scale-[1.03] transition duration-300">
+          <img src="image/aot.jpg" class="w-full h-52 object-cover">
+          <div class="p-4">
+            <h3 class="text-sm md:text-lg font-bold text-white hover:text-orange-500 transition line-clamp-1">
+              Attack on Titan
+            </h3>
+            <p class="text-gray-400 text-xs md:text-sm mt-1 line-clamp-1">
+              Dark • Action • Drama
+            </p>
+          </div>
         </div>
 
       </div>
 
+      <!-- Header -->
+      <div class="flex justify-between items-center mb-6 mt-16">
+        <h2 class="text-2xl md:text-3xl font-bold text-white">
+          Top <span class="text-orange-500">Anime</span> Movies
+        </h2>
+
+        <a href="amovies.html" class="text-sm md:text-base text-orange-500 hover:text-orange-400 transition font-semibold">
+          See All →
+        </a>
+      </div>
+
+      <!-- Anime Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+        <!-- Card 1 -->
+        <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg cursor-pointer hover:scale-[1.03] transition duration-300">
+          <img src="image/your name.jpg" class="w-full h-52 object-cover">
+          <div class="p-4">
+            <h3 class="text-sm md:text-lg font-bold text-white hover:text-orange-500 transition line-clamp-1">
+              Your Name
+            </h3>
+
+            <p class="text-gray-400 text-xs md:text-sm mt-1 line-clamp-1">
+              Action • Fantasy • Adventure
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg cursor-pointer hover:scale-[1.03] transition duration-300">
+          <img src="image/naruto movie.jpg" class="w-full h-52 object-cover">
+          <div class="p-4">
+            <h3 class="text-sm md:text-lg font-bold text-white hover:text-orange-500 transition line-clamp-1">
+              The Last: Naruto the Movie
+            </h3>
+
+            <p class="text-gray-400 text-xs md:text-sm mt-1 line-clamp-1">
+              Action • Fantasy • Adventure
+            </p>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -427,9 +431,9 @@
         <!-- Social -->
         <div class="flex gap-4 mt-4 md:mt-0">
           <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-facebook-circle'></i></a>
-          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-twitter' ></i></a>
-          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-youtube' ></i></a>
-          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-instagram-alt' ></i></a>
+          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-twitter'></i></a>
+          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-youtube'></i></a>
+          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-instagram-alt'></i></a>
         </div>
       </div>
 
@@ -440,54 +444,54 @@
   <script src="js/navbar.js"></script>
   <script src="js/tailwindcss.js"></script>
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", () => {
 
-    const counters = document.querySelectorAll(".counter");
+      const counters = document.querySelectorAll(".counter");
 
-    counters.forEach(counter => {
-      const target = parseFloat(counter.dataset.target);
-      const isDecimal = target % 1 !== 0;
-      let current = 0;
+      counters.forEach(counter => {
+        const target = parseFloat(counter.dataset.target);
+        const isDecimal = target % 1 !== 0;
+        let current = 0;
 
-      // Speed control
-      const duration = 1500; // total animation time (ms)
-      const startTime = performance.now();
+        // Speed control
+        const duration = 1500; // total animation time (ms)
+        const startTime = performance.now();
 
-      function animateCounter(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
+        function animateCounter(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
 
-        // Ease-out effect
-        const easedProgress = 1 - Math.pow(1 - progress, 3);
-        const value = easedProgress * target;
+          // Ease-out effect
+          const easedProgress = 1 - Math.pow(1 - progress, 3);
+          const value = easedProgress * target;
 
-        if (isDecimal) {
-          counter.innerText = value.toFixed(1);
-        } else {
-          counter.innerText = formatNumber(Math.floor(value));
+          if (isDecimal) {
+            counter.innerText = value.toFixed(1);
+          } else {
+            counter.innerText = formatNumber(Math.floor(value));
+          }
+
+          if (progress < 1) {
+            requestAnimationFrame(animateCounter);
+          } else {
+            // Final value fix
+            counter.innerText = isDecimal
+              ? target.toFixed(1) + "★"
+              : formatNumber(target);
+          }
         }
 
-        if (progress < 1) {
-          requestAnimationFrame(animateCounter);
-        } else {
-          // Final value fix
-          counter.innerText = isDecimal
-            ? target.toFixed(1) + "★"
-            : formatNumber(target);
-        }
+        requestAnimationFrame(animateCounter);
+      });
+
+      function formatNumber(num) {
+        if (num >= 1000000) return (num / 1000000).toFixed(1) + "M+";
+        if (num >= 1000) return (num / 1000).toFixed(0) + "K+";
+        return num + "+";
       }
 
-      requestAnimationFrame(animateCounter);
     });
-
-    function formatNumber(num) {
-      if (num >= 1000000) return (num / 1000000).toFixed(1) + "M+";
-      if (num >= 1000) return (num / 1000).toFixed(0) + "K+";
-      return num + "+";
-    }
-
-  });
-</script>
+  </script>
 
 
 </body>

@@ -5,16 +5,21 @@
     "file": "watch.html?anime=Black Cover",
     "image": "image/black cover.jpg",
     "video": "videos/black clover.mp4",
+    "ep": [],
     "description": "Black Clover follows Asta, a boy born without magic in a world where magic is everything."
   },
   {
-    "title": "Naruto",
-    "category": "Action Anime",
-    "file": "watch.html?anime=Naruto",
-    "image": "image/naruto.webp",
-    "video": "videos/naruto.mp4",
-    "description": "Naruto Uzumaki dreams of becoming the strongest ninja and Hokage of his village."
-  },
+  "title": "Naruto",
+  "category": "Action Anime",
+  "file": "watch.html?anime=Naruto",
+  "image": "image/naruto.webp",
+  "description": "No description available.",
+  "video": "videos/naruto.mp4",
+  "episodes": [
+    {"title": "Episode 1", "video": "videos/black clover.mp4"},
+    { "title": "Episode 2", "video": "videos/naruto/ep2.mp4"}
+  ]
+},
   {
     "title": "Demon Slayer",
     "category": "Dark Fantasy Anime",
@@ -95,13 +100,5 @@
     "image": "image/one piece.jpg",
     "video": "",
     "description": "Monkey D. Luffy sets out to become the Pirate King."
-  },
-  {
-    "title": "Your Name",
-    "category": "Romance Fantasy Anime",
-    "file": "watch.html?anime=Your Name",
-    "image": "image/your name.jpg",
-    "video": "",
-    "description": "Two strangers are mysteriously connected through dreams and time."
   }
 ]
