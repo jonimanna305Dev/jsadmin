@@ -1,0 +1,27 @@
+[
+    {
+        "title": "Home",
+        "url": "index.html",
+        "status": 1
+    },
+    {
+        "title": "About",
+        "url": "about.html",
+        "status": 1
+    },
+    {
+        "title": "Anime",
+        "url": "anime.html",
+        "status": 1
+    },
+    {
+        "title": "Movies",
+        "url": "amovies.html",
+        "status": 1
+    },
+    {
+        "title": "Contact",
+        "url": "contact.html",
+        "status": 1
+    }
+]

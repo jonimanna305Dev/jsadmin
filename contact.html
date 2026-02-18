@@ -41,23 +41,14 @@
 
       <!-- Menu -->
       <div class="hidden w-full md:flex md:w-auto md:order-1 items-center justify-between" id="navbar-sticky">
-        <ul class="flex flex-col md:flex-row md:space-x-6 text-white font-medium mt-4 md:mt-0">
-          <li>
-            <a href="index.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Home</a>
-          </li>
-          <li>
-            <a href="about.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">About</a>
-          </li>
-          <li>
-            <a href="anime.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Anime</a>
-          </li>
-          <li>
-            <a href="amovies.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Movies</a>
-          <li>
-            <a href="contact.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Contact</a>
-          </li>
-        </ul>
-
+        <!-- Template -->
+        <template id="nav-template">
+          <ul class="flex flex-col md:flex-row md:space-x-6 text-white font-medium mt-4 md:mt-0">
+            <li>
+              <a href="" class="block py-2 px-3 rounded md:p-0 hover:text-black transform"></a>
+            </li>
+          </ul>
+        </template>
         <!-- Mobile Login Button -->
         <a href="loginorregister.html"
           class="block mt-3 md:hidden w-full text-center bg-black text-orange-600 font-semibold px-4 py-2 rounded-full hover:bg-gray-100 transition">
@@ -151,23 +142,27 @@
         <!-- Quick Links -->
         <div>
           <h4 class="text-white font-semibold mb-4">Quick Links</h4>
-          <ul class="space-y-2">
-            <li><a href="#" class="hover:text-orange-500 transition">Home</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition">About</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition">Anime</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition">Contact</a></li>
-          </ul>
+          <template id="footer-links-template">
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="hover:text-orange-500 transition"></a>
+              </li>
+            </ul>
+          </template>
+
         </div>
 
         <!-- Categories -->
         <div>
           <h4 class="text-white font-semibold mb-4">Categories</h4>
-          <ul class="space-y-2">
-            <li><a href="#" class="hover:text-orange-500 transition">Action</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition">Adventure</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition">Fantasy</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition">Romance</a></li>
-          </ul>
+          <template id="footer-category-template">
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="hover:text-orange-500 transition"></a>
+              </li>
+            </ul>
+          </template>
+
         </div>
 
         <!-- Newsletter -->
@@ -188,17 +183,17 @@
       </div>
 
       <!-- Bottom -->
-      <div class="border-t border-gray-800 py-6 flex flex-col md:flex-row items-center justify-between">
+      <div class="border-t border-orange-500 py-6 flex flex-col md:flex-row items-center justify-between">
         <p class="text-sm">
-          © 2026 WebTan. All rights reserved.
+          <span class="text-orange-500">© 2026</span> WebTan. All rights reserved.
         </p>
 
         <!-- Social -->
         <div class="flex gap-4 mt-4 md:mt-0">
           <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-facebook-circle'></i></a>
-          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-twitter' ></i></a>
-          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-youtube' ></i></a>
-          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-instagram-alt' ></i></a>
+          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-twitter'></i></a>
+          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-youtube'></i></a>
+          <a href="#" class="text-2xl hover:text-orange-500 transition"><i class='bx bxl-instagram-alt'></i></a>
         </div>
       </div>
 
@@ -208,5 +203,6 @@
 <!-- Navbar Toggle -->
 <script src="js/navbar.js"></script>
 <script src="js/tailwindcss.js"></script>
+<script src="js/nav.js"></script>
 </body>
 </html>

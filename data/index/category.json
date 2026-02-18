@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Action",
+        "status": 1
+    },
+    {
+        "name": "Adventure",
+        "status": 1
+    },
+    {
+        "name": "Comedy",
+        "status": 1
+    },
+    {
+        "name": "Romance",
+        "status": 1
+    },
+    {
+        "name": "Fantasy",
+        "status": 1
+    }
+]

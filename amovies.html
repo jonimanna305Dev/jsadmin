@@ -144,23 +144,27 @@
         <!-- Quick Links -->
         <div>
           <h4 class="text-white font-semibold mb-4">Quick Links</h4>
-          <ul class="space-y-2">
-            <li><a href="#" class="hover:text-orange-500 transition">Home</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition">About</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition">Anime</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition">Contact</a></li>
-          </ul>
+          <template id="footer-links-template">
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="hover:text-orange-500 transition"></a>
+              </li>
+            </ul>
+          </template>
+
         </div>
 
         <!-- Categories -->
         <div>
           <h4 class="text-white font-semibold mb-4">Categories</h4>
-          <ul class="space-y-2">
-            <li><a href="#" class="hover:text-orange-500 transition">Action</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition">Adventure</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition">Fantasy</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition">Romance</a></li>
-          </ul>
+          <template id="footer-category-template">
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="hover:text-orange-500 transition"></a>
+              </li>
+            </ul>
+          </template>
+
         </div>
 
         <!-- Newsletter -->
@@ -181,9 +185,9 @@
       </div>
 
       <!-- Bottom -->
-      <div class="border-t border-gray-800 py-6 flex flex-col md:flex-row items-center justify-between">
+      <div class="border-t border-orange-500 py-6 flex flex-col md:flex-row items-center justify-between">
         <p class="text-sm">
-          © 2026 WebTan. All rights reserved.
+          <span class="text-orange-500">© 2026</span> WebTan. All rights reserved.
         </p>
 
         <!-- Social -->

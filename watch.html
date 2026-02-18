@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Webtan</title>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body class="bg-gray-100 text-gray-800">
 
   <!-- Fixed Navbar -->
@@ -40,20 +42,14 @@
 
       <!-- Menu -->
       <div class="hidden w-full md:flex md:w-auto md:order-1 items-center justify-between" id="navbar-sticky">
-        <ul class="flex flex-col md:flex-row md:space-x-6 text-white font-medium mt-4 md:mt-0">
-          <li>
-            <a href="index.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Home</a>
-          </li>
-          <li>
-            <a href="about.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">About</a>
-          </li>
-          <li>
-            <a href="anime.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Anime</a>
-          </li>
-          <li>
-            <a href="contact.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Contact</a>
-          </li>
-        </ul>
+        <!-- Template -->
+        <template id="nav-template">
+          <ul class="flex flex-col md:flex-row md:space-x-6 text-white font-medium mt-4 md:mt-0">
+            <li>
+              <a href="" class="block py-2 px-3 rounded md:p-0 hover:text-black transform"></a>
+            </li>
+          </ul>
+        </template>
 
         <!-- Mobile Login Button -->
         <a href="loginorregister.html"
@@ -82,14 +78,12 @@
   <section class="pb-20 bg-gray-900 text-white">
     <div class="container mx-auto px-4 max-w-5xl">
 
+      <!-- VIDEO -->
       <div class="aspect-video mb-8">
-        <!-- Video -->
         <video id="animeVideo" controls class="w-full h-full rounded-3xl bg-black shadow-xl hidden">
           <source id="animeVideoSource" src="" type="video/mp4" />
-          Your browser does not support the video tag.
         </video>
 
-        <!-- Fallback -->
         <div id="noVideo"
           class="w-full h-full flex items-center justify-center bg-black rounded-3xl text-gray-400 text-lg">
           🎬 Video not available
@@ -99,19 +93,51 @@
       <h2 id="animeTrailerTitle" class="text-3xl font-bold mb-3"></h2>
       <p id="animeDescription" class="text-gray-400 leading-relaxed mb-8"></p>
 
-      <div class="flex gap-4">
+      <div class="flex gap-4 mb-10">
         <a href="anime.html"
           class="bg-orange-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-orange-600 transition">
           ← Back to Anime
         </a>
 
-        <button class="bg-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-600 transition">
+        <button id="nextEpisodeBtn"
+          class="bg-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-600 transition">
           Next Episode →
         </button>
       </div>
 
+      <h1 class="text-3xl font-bold mb-4">Ep list</h1>
+
+      <!-- Episode Card Template -->
+      <div id="episodeTemplate" class="hidden">
+        <article class="group flex flex-col md:flex-row items-center gap-4
+           bg-gray-900 border border-gray-800 rounded-3xl p-5
+           shadow-sm hover:shadow-lg hover:border-orange-500
+           transition-all duration-300 cursor-pointer">
+
+          <!-- Episode Thumbnail -->
+          <img src="image/The Reincarnation.jpg" alt="Episode Thumbnail" loading="lazy" class="episode-video
+             w-full md:w-48 h-64 md:h-32
+             object-cover rounded-2xl
+             group-hover:scale-105 transition-transform duration-300" />
+
+          <!-- Episode Info -->
+          <div class="flex flex-col justify-center md:pl-4 text-center md:text-left">
+            <h5 class="episode-title
+               text-xl md:text-2xl font-bold text-white
+               tracking-tight line-clamp-2">
+            </h5>
+
+            <p class="text-sm text-gray-400 mt-1">
+              Click to watch episode
+            </p>
+          </div>
+
+        </article>
+      </div>
+
     </div>
   </section>
+
 
   <!-- Footer -->
   <footer class="bg-black text-gray-400 pt-16">
@@ -134,23 +160,27 @@
         <!-- Quick Links -->
         <div>
           <h4 class="text-white font-semibold mb-4">Quick Links</h4>
-          <ul class="space-y-2">
-            <li><a href="index.html" class="hover:text-orange-500 transition">Home</a></li>
-            <li><a href="about.html" class="hover:text-orange-500 transition">About</a></li>
-            <li><a href="anime.html" class="hover:text-orange-500 transition">Anime</a></li>
-            <li><a href="contact.html" class="hover:text-orange-500 transition">Contact</a></li>
-          </ul>
+          <template id="footer-links-template">
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="hover:text-orange-500 transition"></a>
+              </li>
+            </ul>
+          </template>
+
         </div>
 
         <!-- Categories -->
         <div>
           <h4 class="text-white font-semibold mb-4">Categories</h4>
-          <ul class="space-y-2">
-            <li><a href="#" class="hover:text-orange-500 transition">Action</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition">Adventure</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition">Fantasy</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition">Romance</a></li>
-          </ul>
+          <template id="footer-category-template">
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="hover:text-orange-500 transition"></a>
+              </li>
+            </ul>
+          </template>
+
         </div>
 
         <!-- Newsletter -->
@@ -171,9 +201,9 @@
       </div>
 
       <!-- Bottom -->
-      <div class="border-t border-gray-800 py-6 flex flex-col md:flex-row items-center justify-between">
+      <div class="border-t border-orange-500 py-6 flex flex-col md:flex-row items-center justify-between">
         <p class="text-sm">
-          © 2026 WebTan. All rights reserved.
+          <span class="text-orange-500">© 2026</span> WebTan. All rights reserved.
         </p>
 
         <!-- Social -->
@@ -192,9 +222,75 @@
   <script src="js/navbar.js"></script>
   <script src="js/tailwindcss.js"></script>
   <script src="js/watch.js"></script>
-  
-
+  <script src="js/nav.js"></script>
+  <script src="js/footer-links.js"></script>
+  <script src="js/footer-category.js"></script>
 
 </body>
-
 </html>
+
+
+<h1 class="text-2xl font-semibold mb-6">Dashboard</h1>
+
+<!-- Stats Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-4 gap-6 mb-8">
+  <div class="bg-white p-6 rounded-lg shadow">
+    <p class="text-sm text-gray-500">Total Users</p>
+    <h2 class="text-2xl font-bold">1,245</h2>
+  </div>
+
+  <div class="bg-white p-6 rounded-lg shadow">
+    <p class="text-sm text-gray-500">Total Anime</p>
+    <h2 class="text-2xl font-bold">320</h2>
+  </div>
+
+  <div class="bg-white p-6 rounded-lg shadow">
+    <p class="text-sm text-gray-500">Total Episodes</p>
+    <h2 class="text-2xl font-bold">1,200</h2>
+  </div>
+
+  <div class="bg-white p-6 rounded-lg shadow">
+    <p class="text-sm text-gray-500">Total Categories</p>
+    <h2 class="text-2xl font-bold">15</h2>
+  </div>
+</div>
+
+<!-- Table and Calendar Section -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+  <!-- Users Table -->
+    <div class="bg-white p-6 rounded-lg shadow overflow-x-auto">
+    <h3 class="text-lg font-semibold mb-4">Recent Users</h3>
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead>
+        <tr class="bg-gray-50">
+          <th class="px-4 py-2 text-left text-sm font-medium text-gray-500">ID</th>
+          <th class="px-4 py-2 text-left text-sm font-medium text-gray-500">Name</th>
+          <th class="px-4 py-2 text-left text-sm font-medium text-gray-500">Email</th>
+          <th class="px-4 py-2 text-left text-sm font-medium text-gray-500">Registered</th>
+        </tr>
+      </thead>
+
+      <!-- Template for rows -->
+      <template id="tableTemplate">
+        <tbody class="divide-y divide-gray-200">
+          <tr>
+            <td class="px-4 py-2"></td>
+            <td class="px-4 py-2"></td>
+            <td class="px-4 py-2"></td>
+            <td class="px-4 py-2"></td>
+          </tr>
+        </tbody>
+      </template>
+
+    </table>
+  </div>
+
+  <!-- Calendar -->
+  <div class="bg-white p-6 rounded-lg shadow">
+    <h3 class="text-lg font-semibold mb-4">Calendar</h3>
+    <input type="date" class="border border-gray-300 rounded p-2 w-full">
+    <!-- For a full interactive calendar, you can integrate a JS calendar like FullCalendar -->
+  </div>
+</div>
+
+

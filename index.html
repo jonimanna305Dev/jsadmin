@@ -43,23 +43,14 @@
 
       <!-- Menu -->
       <div class="hidden w-full md:flex md:w-auto md:order-1 items-center justify-between" id="navbar-sticky">
-        <ul class="flex flex-col md:flex-row md:space-x-6 text-white font-medium mt-4 md:mt-0">
-          <li>
-            <a href="index.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Home</a>
-          </li>
-          <li>
-            <a href="about.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">About</a>
-          </li>
-          <li>
-            <a href="anime.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Anime</a>
-          </li>
-          <li>
-            <a href="amovies.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Movies</a>
-          </li>
-          <li>
-            <a href="contact.html" class="block py-2 px-3 rounded md:p-0 hover:text-black transform">Contact</a>
-          </li>
-        </ul>
+        <!-- Template -->
+        <template id="nav-template">
+          <ul class="flex flex-col md:flex-row md:space-x-6 text-white font-medium mt-4 md:mt-0">
+            <li>
+              <a href="" class="block py-2 px-3 rounded md:p-0 hover:text-black transform"></a>
+            </li>
+          </ul>
+        </template>
 
         <!-- Mobile Login Button -->
         <a href="loginorregister.html"
@@ -170,7 +161,8 @@
           Top <span class="text-orange-500">Anime</span> Srices
         </h2>
 
-        <a href="anime.html" class="text-sm md:text-base text-orange-500 hover:text-orange-400 transition font-semibold">
+        <a href="anime.html"
+          class="text-sm md:text-base text-orange-500 hover:text-orange-400 transition font-semibold">
           See All →
         </a>
       </div>
@@ -241,7 +233,8 @@
           Top <span class="text-orange-500">Anime</span> Movies
         </h2>
 
-        <a href="amovies.html" class="text-sm md:text-base text-orange-500 hover:text-orange-400 transition font-semibold">
+        <a href="amovies.html"
+          class="text-sm md:text-base text-orange-500 hover:text-orange-400 transition font-semibold">
           See All →
         </a>
       </div>
@@ -250,7 +243,8 @@
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
 
         <!-- Card 1 -->
-        <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg cursor-pointer hover:scale-[1.03] transition duration-300">
+        <div
+          class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg cursor-pointer hover:scale-[1.03] transition duration-300">
           <img src="image/your name.jpg" class="w-full h-52 object-cover">
           <div class="p-4">
             <h3 class="text-sm md:text-lg font-bold text-white hover:text-orange-500 transition line-clamp-1">
@@ -264,7 +258,8 @@
         </div>
 
         <!-- Card 2 -->
-        <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg cursor-pointer hover:scale-[1.03] transition duration-300">
+        <div
+          class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg cursor-pointer hover:scale-[1.03] transition duration-300">
           <img src="image/naruto movie.jpg" class="w-full h-52 object-cover">
           <div class="p-4">
             <h3 class="text-sm md:text-lg font-bold text-white hover:text-orange-500 transition line-clamp-1">
@@ -280,7 +275,6 @@
       </div>
     </div>
   </section>
-
 
   <!-- Section: Anime Watch -->
   <section class="bg-black py-20 text-white relative overflow-hidden">
@@ -386,23 +380,27 @@
         <!-- Quick Links -->
         <div>
           <h4 class="text-white font-semibold mb-4">Quick Links</h4>
-          <ul class="space-y-2">
-            <li><a href="#" class="hover:text-orange-500 transition">Home</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition">About</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition">Anime</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition">Contact</a></li>
-          </ul>
+          <template id="footer-links-template">
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="hover:text-orange-500 transition"></a>
+              </li>
+            </ul>
+          </template>
+
         </div>
 
         <!-- Categories -->
         <div>
           <h4 class="text-white font-semibold mb-4">Categories</h4>
-          <ul class="space-y-2">
-            <li><a href="#" class="hover:text-orange-500 transition">Action</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition">Adventure</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition">Fantasy</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition">Romance</a></li>
-          </ul>
+          <template id="footer-category-template">
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="hover:text-orange-500 transition"></a>
+              </li>
+            </ul>
+          </template>
+
         </div>
 
         <!-- Newsletter -->
@@ -423,9 +421,9 @@
       </div>
 
       <!-- Bottom -->
-      <div class="border-t border-gray-800 py-6 flex flex-col md:flex-row items-center justify-between">
+      <div class="border-t border-orange-500 py-6 flex flex-col md:flex-row items-center justify-between">
         <p class="text-sm">
-          © 2026 WebTan. All rights reserved.
+          <span class="text-orange-500">© 2026</span> WebTan. All rights reserved.
         </p>
 
         <!-- Social -->
@@ -443,6 +441,9 @@
   <!-- Tailwind JS for Navbar Toggle -->
   <script src="js/navbar.js"></script>
   <script src="js/tailwindcss.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/footer-links.js"></script>
+  <script src="js/footer-category.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
 
